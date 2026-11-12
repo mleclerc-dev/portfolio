@@ -1,0 +1,533 @@
+@import "tailwindcss";
+
+/*
+ * The host is a black drafting table: near-black with a fine grid, white ink, no hue of
+ * its own, so the projects bring the colour. The career and about sections switch to a
+ * light sheet with the same grid in dark lines. Each project wears its own identity,
+ * taken from the real app (palette, display face, details), via data-scene / data-page-scene.
+ */
+
+@property --paper { syntax: "<color>"; inherits: true; initial-value: #0b0b0c; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #f2f2ef; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #b4b4ba; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: #2a2a2e; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #f2f2ef; }
+
+@theme {
+  --font-display: "Anybody", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-hand: "Caveat", "Bradley Hand", cursive;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+}
+
+/* ---------- Palettes ---------- */
+
+:root {
+  color-scheme: dark;
+
+  /* Drafting table: the default */
+  --host-paper: #0b0b0c;
+  --host-ink: #f2f2ef;
+  --host-muted: #b4b4ba;
+  --host-line: #34343a;
+  --host-accent: #f2d04b;
+  /* The signal yellow, available everywhere (also on light sheets and project pages) */
+  --yellow: #f2d04b;
+  --on-yellow: #0b0b0c;
+  --grid: rgb(255 255 255 / 0.075);
+  --grid-fine: rgb(255 255 255 / 0.03);
+  /* Solid surface for anything with running text, so the grid never runs under it */
+  --surface: #151518;
+  --surface-shadow: 0 0 0 1px rgb(255 255 255 / 0.02) inset;
+
+  /* Light sheet */
+  --sheet-paper: #ededea;
+  --sheet-ink: #0b0b0c;
+  --sheet-muted: #4a4a4f;
+  --sheet-line: #cfcfca;
+  --sheet-accent: #0b0b0c;
+
+  /* Move Taxi Moto: burgundy, blush paper */
+  --taxi-paper: #4a0e17;
+  --taxi-ink: #f6f1f2;
+  --taxi-muted: #d9b5bb;
+  --taxi-line: #6a2430;
+  --taxi-accent: #f0d2d7;
+
+  /* Kaplouf: deep sea, ice, brass */
+  --kaplouf-paper: #0c2f57;
+  --kaplouf-ink: #f2f9ff;
+  --kaplouf-muted: #a9d2ee;
+  --kaplouf-line: #24507f;
+  --kaplouf-accent: #f0c04a;
+
+  /* Mariage: « Encre & émeraude » (canvas, ink, one emerald accent) */
+  --mariage-paper: #f6f6f5;
+  --mariage-ink: #18181b;
+  --mariage-muted: #5f5e66;
+  --mariage-line: #e2e1de;
+  --mariage-accent: #13856b;
+  --mariage-soft: #e8f3ef;
+
+  /* Le Noël des copains: pine, snow, gold, holly, candy */
+  --noel-paper: #0f3d2e;
+  --noel-ink: #f4f7f5;
+  --noel-muted: #b6ccc1;
+  --noel-line: #275a49;
+  --noel-accent: #f2b134;
+  --noel-holly: #d7263d;
+  --noel-candy: #ffc2cf;
+
+  --paper: var(--host-paper);
+  --ink: var(--host-ink);
+  --muted: var(--host-muted);
+  --line: var(--host-line);
+  --accent: var(--host-accent);
+}
+
+html:not(.morph) .scene[data-scene="taxi"],
+html.morph[data-scene="taxi"],
+html[data-page-scene="taxi"] {
+  --paper: var(--taxi-paper);
+  --ink: var(--taxi-ink);
+  --muted: var(--taxi-muted);
+  --line: var(--taxi-line);
+  --accent: var(--taxi-accent);
+}
+
+html:not(.morph) .scene[data-scene="kaplouf"],
+html.morph[data-scene="kaplouf"],
+html[data-page-scene="kaplouf"] {
+  --paper: var(--kaplouf-paper);
+  --ink: var(--kaplouf-ink);
+  --muted: var(--kaplouf-muted);
+  --line: var(--kaplouf-line);
+  --accent: var(--kaplouf-accent);
+}
+
+html:not(.morph) .scene[data-scene="mariage"],
+html.morph[data-scene="mariage"],
+html[data-page-scene="mariage"] {
+  --paper: var(--mariage-paper);
+  --ink: var(--mariage-ink);
+  --muted: var(--mariage-muted);
+  --line: var(--mariage-line);
+  --accent: var(--mariage-accent);
+}
+
+html:not(.morph) .scene[data-scene="noel"],
+html.morph[data-scene="noel"],
+html[data-page-scene="noel"] {
+  --paper: var(--noel-paper);
+  --ink: var(--noel-ink);
+  --muted: var(--noel-muted);
+  --line: var(--noel-line);
+  --accent: var(--noel-accent);
+}
+
+/* Section tones on the home page */
+.tone-sheet {
+  --paper: var(--sheet-paper);
+  --ink: var(--sheet-ink);
+  --muted: var(--sheet-muted);
+  --line: var(--sheet-line);
+  --accent: var(--sheet-accent);
+  --grid: rgb(0 0 0 / 0.07);
+  --grid-fine: rgb(0 0 0 / 0.028);
+  --surface: #fbfbf9;
+  --surface-shadow: 0 1px 0 rgb(0 0 0 / 0.03), 0 18px 40px -28px rgb(0 0 0 / 0.35);
+  color: var(--ink);
+}
+
+/* The drafting grid: 80px squares, 16px subdivisions. */
+.blueprint,
+.tone-sheet {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    linear-gradient(var(--grid-fine) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-fine) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+
+/* A solid card on the grid */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--surface-shadow);
+}
+
+/* Outlined display type */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 0.022em var(--ink);
+}
+
+/* A project's colours on demand, outside its scene (index rows, hero word). */
+[data-swatch="taxi"] { --sw-paper: var(--taxi-paper); --sw-ink: var(--taxi-ink); --sw-accent: var(--taxi-accent); --sw-word: var(--taxi-muted); }
+[data-swatch="kaplouf"] { --sw-paper: var(--kaplouf-paper); --sw-ink: var(--kaplouf-ink); --sw-accent: var(--kaplouf-accent); --sw-word: var(--kaplouf-muted); }
+[data-swatch="mariage"] { --sw-paper: var(--mariage-paper); --sw-ink: var(--mariage-ink); --sw-accent: var(--mariage-accent); --sw-word: var(--mariage-accent); }
+[data-swatch="noel"] { --sw-paper: var(--noel-paper); --sw-ink: var(--noel-ink); --sw-accent: var(--noel-accent); --sw-word: var(--noel-accent); }
+
+/* ---------- Faces (static per element, never morph) ---------- */
+
+[data-face="taxi"] {
+  font-family: "Gilda Display", "Didot", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+[data-face="kaplouf"] {
+  font-family: "Archivo", ui-sans-serif, sans-serif;
+  font-weight: 900;
+  font-stretch: 125%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+[data-face="mariage"] {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+[data-face="noel"] {
+  font-family: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+[data-face="host"] {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 92%;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Kinetic type (host only) ---------- */
+
+/* Letters split by <KineticText>: weight and width set per letter, from the cursor. */
+.kinetic [data-c] {
+  display: inline-block;
+  font-variation-settings: "wght" var(--k-wght, 760), "wdth" var(--k-wdth, 92);
+}
+
+
+
+
+/* ---------- Base ---------- */
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    --paper 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    --ink 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    --muted 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    --line 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    --accent 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+.scene {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+html.morph .scene,
+html[data-page-scene] .scene {
+  background: transparent;
+}
+
+/* Shared title between the project list and a project page (View Transitions). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+}
+
+button,
+[role="button"],
+summary {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--on-yellow);
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Shared pieces (layered, so utilities can override them) ---------- */
+
+@layer components {
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+    transition: text-decoration-color 0.2s;
+  }
+
+  .link-underline:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Device frames around real screenshots */
+  .phone {
+    position: relative;
+    aspect-ratio: 390 / 844;
+    border-radius: 2.6rem;
+    padding: 0.55rem;
+    background: #0b0b0d;
+    box-shadow:
+      inset 0 0 0 1.5px #3a3b40,
+      0 40px 80px -30px rgb(0 0 0 / 0.65),
+      0 18px 36px -24px rgb(0 0 0 / 0.5);
+  }
+
+  .phone > img,
+.phone > video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 2.1rem;
+    display: block;
+  }
+
+  .browser {
+    border-radius: 0.9rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 0 0 1px rgb(0 0 0 / 0.08),
+      0 50px 100px -40px rgb(0 0 0 / 0.45),
+      0 20px 40px -30px rgb(0 0 0 / 0.35);
+  }
+}
+
+/* ---------- Motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+    .drift {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Big headings stretch open as they come into view. */
+    .stretch-in {
+      animation: stretch-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+
+/* Hero lines rising into place on load (the overflow clip lives on .rise > *). */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+  @supports (animation-timeline: view()) {
+    .grow-bar {
+      animation: grow-bar linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+      transform-origin: left center;
+    }
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.35em); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+/* The visitor paused the animations (footer / hero switch): everything holds still. */
+html.motion-off *,
+html.motion-off *::before,
+html.motion-off *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* The career surfer: sits at the end of its bar; with scroll-driven animations, rides it as it grows. */
+.surf-rider {
+  left: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Bar and rider share the track's timeline, so the surfer stays on the bar's leading edge. */
+    .surf-track {
+      view-timeline: --track block;
+    }
+    .surf-rider {
+      animation: surf-ride linear both;
+    }
+    .surf-track .grow-bar,
+    .surf-track .surf-rider {
+      animation-timeline: --track;
+      animation-range: entry 10% cover 45%;
+    }
+  }
+  /* The wave is alive: it heaves, the lip curls, spray flies, foam runs down the face */
+  .surf-heave {
+    transform-box: fill-box;
+    transform-origin: 85% 100%;
+    animation: surf-heave 1.6s ease-in-out infinite alternate;
+  }
+  .surf-lip {
+    transform-box: fill-box;
+    transform-origin: 0% 20%;
+    animation: surf-lip 1.6s ease-in-out infinite alternate;
+  }
+  .surf-foam {
+    animation: surf-foam 0.9s linear infinite;
+  }
+  .surf-spray {
+    transform-box: fill-box;
+    animation: surf-spray 1.4s ease-out infinite;
+  }
+  .surf-bob {
+    transform-box: view-box;
+    animation: surf-bob 1.6s ease-in-out infinite alternate;
+  }
+}
+@keyframes surf-ride {
+  from { left: 0%; }
+  to { left: 100%; }
+}
+@keyframes surf-bob {
+  from { transform: translate(0, 0.6px) rotate(0.6deg); }
+  to { transform: translate(0.8px, -2.4px) rotate(-1.6deg); }
+}
+@keyframes surf-heave {
+  from { transform: scaleY(0.93) skewX(0deg); }
+  to { transform: scaleY(1.06) skewX(-3deg); }
+}
+@keyframes surf-lip {
+  from { transform: rotate(-6deg) scale(0.96); }
+  to { transform: rotate(7deg) scale(1.05); }
+}
+@keyframes surf-foam {
+  to { stroke-dashoffset: 16; }
+}
+@keyframes surf-spray {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+  100% { transform: translate(-7px, -9px) scale(0.3); opacity: 0; }
+}
+
+@keyframes grow-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes stretch-in {
+  from { font-stretch: 50%; font-weight: 250; }
+  to { font-stretch: 125%; font-weight: 880; }
+}
+
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(3rem) scale(0.98); }
+  40% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes drift {
+  from { transform: translateY(6%) rotate(var(--tilt, 0deg)); }
+  to { transform: translateY(-6%) rotate(var(--tilt, 0deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+    scroll-behavior: auto;
+  }
+  /* No transitions at all (a 0.01ms duration on every element would create a transition
+     for every property, font-size included, and break anything that measures text). */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* The CV page: plain white paper, on screen and in print. */
+html.cv-page {
+  --paper: #e9e9e6;
+  --ink: #111;
+  color-scheme: light;
+  background: #e9e9e6;
+}
+@media print {
+  html.cv-page {
+    background: #fff;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+
+/* The availability dot blinks gently (the ping ring around it is Tailwind's). */
+@media (prefers-reduced-motion: no-preference) {
+  .blink {
+    animation: blink 1.6s ease-in-out infinite;
+  }
+}
+@keyframes blink {
+  50% { opacity: 0.35; }
+}
