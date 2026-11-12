@@ -1,0 +1,76 @@
+import tailwindcss from '@tailwindcss/vite'
+
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
+export default defineNuxtConfig({
+  compatibilityDate: '2026-11-01',
+  devtools: { enabled: true },
+
+  // Page changes cross-fade, and a project's title flies from the list to its page.
+  experimental: { viewTransition: true },
+
+  modules: ['@nuxt/fonts', '@nuxtjs/i18n'],
+
+  css: ['~/assets/css/main.css'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  runtimeConfig: {
+    public: { siteUrl },
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+      ],
+      meta: [{ name: 'theme-color', content: '#0b0b0c' }],
+    },
+  },
+
+  // The host: Anybody (variable weight and width, driven by the cursor), Instrument Sans for reading, IBM Plex Mono.
+  // Then the display face each project wears in its own scene.
+  fonts: {
+    defaults: { weights: [400], styles: ['normal'], subsets: ['latin', 'latin-ext'] },
+    families: [
+      { name: 'Anybody', weights: ['100 900'], variableAxis: { wdth: [[50, 150]] } },
+      { name: 'Instrument Sans', weights: ['400 700'], styles: ['normal', 'italic'] },
+      { name: 'IBM Plex Mono', weights: [400, 500] },
+      { name: 'Gilda Display', weights: [400] },
+      { name: 'Plus Jakarta Sans', weights: ['400 800'] },
+      { name: 'Bricolage Grotesque', weights: ['400 800'] },
+      { name: 'Caveat', weights: ['400 700'] },
+      { name: 'Archivo', weights: ['400 900'], variableAxis: { wdth: [[100, 125]] } },
+    ],
+  },
+
+  i18n: {
+    defaultLocale: 'fr',
+    strategy: 'prefix_except_default',
+    baseUrl: siteUrl,
+    locales: [
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
+      { code: 'en', language: 'en-GB', name: 'English', file: 'en.json' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_locale',
+      redirectOn: 'root',
+    },
+  },
+
+  nitro: {
+    prerender: {
+      routes: [
+        '/', '/en', '/cv', '/en/cv', '/sitemap.xml', '/robots.txt',
+        // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
+        ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
+      ],
+      crawlLinks: true,
+    },
+  },
+})
