@@ -79,7 +79,7 @@ const eur = (n: number) =>
       <div>
         <p class="text-[0.7rem] font-semibold text-[#5f5e66]">{{ t('preview.mariage_cost') }}</p>
         <p class="text-[1.9rem] font-extrabold leading-none tracking-[-0.03em] tabular-nums" aria-live="polite">{{ eur(total) }}</p>
-        <p class="mt-1.5 text-[0.7rem] text-[#5f5e66]">{{ t('preview.mariage_meta', { per: eur(perGuest), tables }) }}</p>
+        <p class="mt-1.5 text-[0.7rem] text-[#5f5e66]">{{ t('preview.mariage_meta', { per: eur(perGuest), people: guests + RECEPTION_ONLY, tables }) }}</p>
       </div>
       <ul class="space-y-1.5 border-t border-[#efeeec] pt-3" aria-hidden="true">
         <li v-for="l in lines" :key="l.key">

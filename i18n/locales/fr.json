@@ -271,7 +271,7 @@
     "taxi_from": "dès",
     "mariage_guests": "Invités au repas",
     "mariage_cost": "Coût estimé · prix indicatifs",
-    "mariage_meta": "{per} par invité · {tables} tables de 8",
+    "mariage_meta": "{per} par invité, sur {people} avec le vin d’honneur · {tables} tables de 8",
     "noel_from": "De la part de",
     "noel_spin": "Faire tourner",
     "noel_again": "Encore une fois",

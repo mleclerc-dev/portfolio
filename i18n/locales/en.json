@@ -271,7 +271,7 @@
     "taxi_from": "from",
     "mariage_guests": "Guests at the meal",
     "mariage_cost": "Estimated cost · indicative prices",
-    "mariage_meta": "{per} per guest · {tables} tables of 8",
+    "mariage_meta": "{per} per guest, across {people} with the drinks reception · {tables} tables of 8",
     "noel_from": "From",
     "noel_spin": "Spin the wheel",
     "noel_again": "Spin again",
