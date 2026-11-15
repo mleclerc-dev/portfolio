@@ -17,15 +17,44 @@ const otherPath = computed(() => (other.value ? switchLocalePath(other.value.cod
 const home = computed(() => localePath('/'))
 
 const links = computed(() => [
-  { to: `${home.value}#projets`, label: t('nav.work') },
-  { to: `${home.value}#services`, label: t('nav.services') },
-  { to: `${home.value}#parcours`, label: t('nav.career') },
-  { to: `${home.value}#a-propos`, label: t('nav.about') },
-  { to: `${home.value}#contact`, label: t('nav.contact') },
+  { id: 'projets', to: `${home.value}#projets`, label: t('nav.work') },
+  { id: 'services', to: `${home.value}#services`, label: t('nav.services') },
+  { id: 'parcours', to: `${home.value}#parcours`, label: t('nav.career') },
+  { id: 'a-propos', to: `${home.value}#a-propos`, label: t('nav.about') },
+  { id: 'contact', to: `${home.value}#contact`, label: t('nav.contact') },
 ])
 
 // Where we are among the projects: -1 outside a project page.
 const current = computed(() => projects.findIndex((p) => p.slug === route.params.slug))
+
+// The active menu item: on a project page, "Projects"; on the home page, the section
+// crossing the middle of the screen (watched as you scroll); elsewhere, none.
+const inView = ref('')
+const active = computed(() => (current.value >= 0 ? 'projets' : inView.value))
+let spy: IntersectionObserver | undefined
+function watchSections() {
+  spy?.disconnect()
+  inView.value = ''
+  spy = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) inView.value = e.target.id
+        else if (inView.value === e.target.id) inView.value = ''
+      }
+    },
+    { rootMargin: '-50% 0px -50% 0px' },
+  )
+  for (const l of links.value) {
+    const el = document.getElementById(l.id)
+    if (el) spy.observe(el)
+  }
+}
+onMounted(() => {
+  watchSections()
+  // the header stays mounted from page to page: look again once the new page is in
+  watch(() => route.path, () => nextTick(watchSections))
+})
+onBeforeUnmount(() => spy?.disconnect())
 const pad = (n: number) => String(n).padStart(2, '0')
 
 // The menu on small screens: a full-height sheet under the bar
@@ -68,7 +97,7 @@ onMounted(() => (isMac.value = /Mac|iPhone|iPad/.test(navigator.platform)))
     </a>
     <div class="mx-auto grid h-14 max-w-[90rem] grid-cols-[1fr_auto] items-center gap-6 px-4 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
       <div class="flex items-center gap-5">
-        <NuxtLink :to="home" :aria-label="t('nav.home')" class="text-[1.75rem] text-ink transition-opacity duration-200 hover:opacity-80"><BrandMark /></NuxtLink>
+        <NuxtLink :to="home" class="text-[1.75rem] text-ink transition-opacity duration-200 hover:opacity-80"><BrandMark aria-hidden="true" /><span class="sr-only">{{ t('nav.home') }}</span></NuxtLink>
       </div>
 
       <!-- Where you are -->
@@ -85,14 +114,17 @@ onMounted(() => (isMac.value = /Mac|iPhone|iPad/.test(navigator.platform)))
           v-for="link in links"
           :key="link.to"
           :to="link.to"
-          class="hidden text-ink underline-offset-[6px] transition-colors duration-200 hover:text-accent lg:inline"
+          :aria-current="active === link.id ? 'location' : undefined"
+          class="relative hidden text-ink transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-[19px] after:h-0.5 after:origin-left after:bg-[var(--yellow)] after:transition-transform after:duration-300 hover:text-accent lg:inline"
+          :class="active === link.id ? 'after:scale-x-100' : 'after:scale-x-0'"
         >
           {{ link.label }}
         </NuxtLink>
         <button
           type="button"
           class="flex h-10 items-center gap-2 rounded-full border border-line px-3.5 normal-case tracking-normal transition-colors duration-200 hover:border-ink"
-          :aria-label="t('term.open')"
+          :aria-label="`${t('term.open')}, ${isMac ? '⌘K' : 'Ctrl K'}`"
+          aria-keyshortcuts="Meta+K Control+K"
           aria-haspopup="dialog"
           @click="terminal.open()"
         >
@@ -104,7 +136,7 @@ onMounted(() => (isMac.value = /Mac|iPhone|iPad/.test(navigator.platform)))
           :to="otherPath"
           :hreflang="other.language"
           :lang="other.code"
-          :aria-label="`${t('nav.language')} (${other.name})`"
+          :aria-label="`${other.code.toUpperCase()}, ${t('nav.language')} (${other.name})`"
           class="grid h-10 min-w-10 place-items-center rounded-full border border-line px-3 transition-colors duration-200 hover:border-ink"
         >
           {{ other.code }}
@@ -139,10 +171,12 @@ onMounted(() => (isMac.value = /Mac|iPhone|iPad/.test(navigator.platform)))
             <li v-for="(link, i) in links" :key="link.to" class="menu-item border-b border-line" :style="{ '--i': i }">
               <NuxtLink
                 :to="link.to"
-                class="flex items-baseline gap-4 py-4 text-ink transition-colors duration-200 hover:text-[var(--yellow)]"
+                :aria-current="active === link.id ? 'location' : undefined"
+                class="flex items-baseline gap-4 py-4 transition-colors duration-200 hover:text-[var(--yellow)]"
+                :class="active === link.id ? 'text-[var(--yellow)]' : 'text-ink'"
                 @click="toggleMenu(false)"
               >
-                <span class="font-mono text-[0.72rem] tabular-nums text-muted">{{ pad(i + 1) }}</span>
+                <span class="font-mono text-[0.72rem] tabular-nums" :class="active === link.id ? 'text-[var(--yellow)]' : 'text-muted'">{{ pad(i + 1) }}</span>
                 <span data-face="host" class="text-[clamp(2rem,9vw,3.2rem)] uppercase leading-none">{{ link.label }}</span>
               </NuxtLink>
             </li>
