@@ -102,8 +102,8 @@ useAutoplay(root, spin, 6800, 600)
       <!-- Gift tag -->
       <div :key="result ?? '?'" :class="{ 'pv-pop': result }" class="relative w-full rotate-2 bg-[#fffdf7] py-3.5 pl-9 pr-3 text-[#13211a] shadow-[0_20px_30px_-18px_rgb(0_0_0/0.6)] [clip-path:polygon(1.6rem_0,100%_0,100%_100%,1.6rem_100%,0_50%)]">
         <span aria-hidden="true" class="absolute left-[0.75rem] top-1/2 size-2.5 -translate-y-1/2 rounded-full bg-[#b01c30] ring-[3px] ring-[#f2b134]" />
-        <span class="block font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#55655c]">{{ t('preview.noel_for') }}</span>
-        <span data-face="noel" class="block truncate text-[clamp(1.5rem,6cqw,2.2rem)] leading-none text-[#b01c30]" aria-live="polite">{{ result ?? '?' }}</span>
+        <span class="block font-mono text-[0.55rem] uppercase tracking-[0.12em] text-[#55655c]">{{ t('preview.noel_for') }}</span>{{ ' ' }}
+        <span data-face="noel" class="block truncate text-[clamp(1.5rem,6cqw,2.2rem)] leading-none text-[#b01c30]" aria-live="polite">{{ result ?? '?' }}</span>{{ ' ' }}
         <span class="mt-1.5 flex items-center gap-1.5 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-[#55655c]">{{ t('preview.noel_from') }} <span class="inline-block h-1.5 w-10 rounded-sm bg-[#13211a]" /></span>
       </div>
       <button
