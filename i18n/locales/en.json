@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Maxime Leclerc · Freelance web developer, Vue, Nuxt, Laravel",
-    "description": "Freelance web developer in Normandy, France: sites with online booking, business tools and installable apps, in Vue, Nuxt and Laravel. Short remote missions.",
+    "title": "Freelance web developer near Cherbourg, France · Maxime Leclerc",
+    "description": "Freelance web developer near Cherbourg, Normandy: sites with online booking, business tools and apps in Vue, Nuxt and Laravel. Short remote missions.",
     "job": "Full-stack web developer",
     "site": "Maxime Leclerc, web developer"
   },
@@ -20,7 +20,7 @@
     "close": "Close"
   },
   "hero": {
-    "kicker": "Maxime Leclerc · Full-stack web developer · Urville-Nacqueville, France",
+    "kicker": "Maxime Leclerc · Freelance web developer · Urville-Nacqueville, France",
     "someone": "you.",
     "lede": "An app idea, a tool to replace, a website to rebuild? I take care of everything: the design, the code and the launch.",
     "title": "Web apps made for you.",
@@ -29,9 +29,9 @@
     "cta_work": "See the work",
     "cta_contact": "Get in touch",
     "spec": "Vue · Nuxt · Laravel · since 2015",
-    "available": "Short missions · evenings & weekends",
-    "role": "full-stack web developer",
-    "where": "Urville-Nacqueville, France · Vue, Nuxt, Laravel · since 2015",
+    "available": "Available for short remote missions",
+    "role": "freelance web developer",
+    "where": "Urville-Nacqueville, near Cherbourg, France · Vue, Nuxt, Laravel · since 2015",
     "sea": "The sea in Urville, live · swell {wave} m",
     "me": "me",
     "splash": "splash",
@@ -72,23 +72,24 @@
   "about": {
     "quote": "A good app is one you use without thinking about it.",
     "heading": "About",
-    "lead": "A web developer since 2015, I live in the Cotentin, by the sea.",
-    "p1": "Trained in computer science (a DUT in Caen), then in web design (a professional degree), I’ve stayed between the two: I design what I code, and I code what I design. Since 2018 I’ve been building accounting applications for oil groups at CICD.",
-    "p2": "Alongside that, I take on short freelance missions in the evenings and at weekends, remotely: a website, a business tool, an app that needs to grow.",
-    "p3": "The rest of the time I’m in the water, surfing or paddleboarding depending on the sea, or working on a game: Kaplouf comes from my taste for game design.",
+    "lead": "Design and code, with nothing lost in between.",
+    "p1": "I’ve been building web applications end to end since 2015. Trained in computer science (a DUT in Caen), then as a webmaster (a professional degree), I think about the interface and the code together, for tools that are pleasant to use and easy to evolve.",
+    "p2": "Since 2018, at CICD, I’ve been developing accounting applications used by oil groups: demanding business tools, where reliability matters as much as usability.",
+    "p3": "As a freelancer, I take on short remote missions: a site with online booking, a business tool, an app that needs to grow. You deal with one person, from the first conversation to the launch.",
+    "p4": "I live in the Cotentin, near Cherbourg, by the sea. When I’m not coding, I’m in the water, surfing or paddleboarding, or working on a game.",
     "photo_alt": "Portrait of Maxime Leclerc",
     "photo_caption": "Urville-Nacqueville, Cotentin",
     "skills": "Tools",
     "cv": "Download my CV",
     "cv_meta": "PDF",
-    "fact0_value": "Since 2015",
-    "fact0_label": "in web development",
-    "fact1_value": "Cotentin",
-    "fact1_label": "Urville-Nacqueville, Normandy",
+    "fact0_value": "{years} years",
+    "fact0_label": "of web development",
+    "fact1_value": "End to end",
+    "fact1_label": "design, code and launch",
     "fact2_value": "Remote",
     "fact2_label": "anywhere in France",
-    "fact3_value": "Evenings & weekends",
-    "fact3_label": "short missions, alongside CICD",
+    "fact3_value": "Freelance",
+    "fact3_label": "short missions, evenings & weekends",
     "card_live": "Live",
     "card_time": "Local time",
     "card_air": "Air",
@@ -114,17 +115,18 @@
     "f_when": "When?",
     "f_when_1": "No rush",
     "f_when_2": "Within the month",
-    "f_when_3": "Fairly soon",
+    "f_when_3": "As soon as possible",
     "f_message": "Your project",
     "f_required": "required",
     "f_send": "Send",
-    "f_note": "No server in between: your mail app opens with the message ready to go.",
+    "f_note": "Clicking opens your mail app with the message ready to go: nothing is stored on this site.",
     "f_sent": "Your mail app opens with the message ready to go. Nothing opened? Write to {email}.",
     "f_subject": "A project"
   },
   "legal": {
     "kicker": "The site",
-    "title": "Legal notice"
+    "title": "Legal notice",
+    "description": "Legal notice and personal data for the site of Maxime Leclerc, freelance web developer: publisher, host, contact form and cookies."
   },
   "footer": {
     "colophon": "Made with Nuxt. Set in Anybody, Instrument Sans and IBM Plex Mono, plus each project’s own typefaces. Screenshots taken from the real apps; the side projects show demo data.",
@@ -139,7 +141,7 @@
   },
   "services": {
     "heading": "Services",
-    "intro": "What I can do for you, from the idea to launch.",
+    "intro": "Three kinds of projects I take on as a freelancer, each with a real example.",
     "process": "How we work",
     "kicker": "On commission"
   },
@@ -150,8 +152,9 @@
     "spec": "Spec sheet",
     "type": "Type",
     "cta": "A project like this one? Let’s talk.",
-    "cta_button": "Write to me",
+    "cta_button": "Get in touch",
     "more": "More projects",
+    "prev": "Previous project",
     "next": "Next project",
     "back": "All projects",
     "try": "Try it: it’s interactive.",
@@ -253,15 +256,17 @@
     "scope": "What’s inside"
   },
   "cv": {
+    "beyond": "Off the clock",
+    "updated": "Updated {date}",
     "title": "CV · Maxime Leclerc",
-    "role": "Full-stack web developer",
+    "role": "Freelance full-stack web developer",
     "profile": "Profile",
     "experience": "Experience",
     "education": "Education",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
-    "available": "Short freelance missions · evenings & weekends, remote",
+    "available": "Short freelance missions · evenings and weekends, remote",
     "print": "Print / save as PDF"
   },
   "preview": {

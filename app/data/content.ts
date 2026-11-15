@@ -89,7 +89,7 @@ export const projects: Project[] = [
         en: 'Fare calculated per ride or by the hour, on a map, flat price shown before ordering',
       },
       {
-        fr: 'Comptes clients, annulation gratuite jusqu’à 24 h avant la prise en charge',
+        fr: 'Comptes clients, annulation gratuite jusqu’à 24 h avant la prise en charge',
         en: 'Customer accounts, free cancellation up to 24 hours before pick-up',
       },
       {
@@ -127,7 +127,7 @@ export const projects: Project[] = [
     for: { fr: 'les joueurs de stratégie mobile', en: 'mobile strategy players' },
     tagline: { fr: 'Reprends la banquise.', en: 'Take back the ice.' },
     pitch: {
-      fr: 'Un jeu de stratégie mobile en 3D. La Bande du Grand Morse a gelé la colonie : on reconstruit le village de pingouins, on arme le Brise-glace, puis on débarque île par île. Une bataille dure moins de 90 secondes.',
+      fr: 'Un jeu de stratégie mobile en 3D. La Bande du Grand Morse a gelé la colonie : on reconstruit le village de pingouins, on arme le Brise-glace, puis on débarque île par île. Une bataille dure moins de 90 secondes.',
       en: 'A 3D mobile strategy game. The Walrus Gang has frozen the colony: you rebuild the penguin village, arm the Icebreaker, then land island by island. A battle lasts under 90 seconds.',
     },
     features: [
@@ -153,8 +153,8 @@ export const projects: Project[] = [
       },
     ],
     summary: {
-      fr: 'Un jeu de stratégie complet en 3D : un village de pingouins qui se reconstruit, des batailles simulées de moins de 90 secondes, une version Android et cinq langues.',
-      en: 'A full 3D strategy game: a penguin village to rebuild, simulated battles under 90 seconds, an Android build and five languages.',
+      fr: 'Un jeu de stratégie en 3D : un village de pingouins qui se reconstruit, des batailles simulées de moins de 90 secondes, une version Android et cinq langues.',
+      en: 'A 3D strategy game: a penguin village to rebuild, simulated battles under 90 seconds, an Android build and five languages.',
     },
     scope: [
       { fr: 'Moteur 3D', en: '3D engine' },
@@ -192,7 +192,7 @@ export const projects: Project[] = [
       en: 'Guests and replies, budget and quotes, seating, schedule and big-day run sheet, lodging and shuttles, gifts: it all adds up together, and the two of you plan it in one shared space.',
     },
     scope: [
-      { fr: 'Invités & RSVP', en: 'Guests & RSVP' },
+      { fr: 'Invités & réponses', en: 'Guests & RSVP' },
       { fr: 'Budget & devis', en: 'Budget & quotes' },
       { fr: 'Plan de table', en: 'Seating plan' },
       { fr: 'Planning & jour J', en: 'Schedule & big day' },
@@ -209,7 +209,7 @@ export const projects: Project[] = [
         en: 'Invitations tracked, and replies through a secret link on a page in the wedding’s colours, no account for guests',
       },
       {
-        fr: 'Budget par poste, devis comparés, paiements et échéances, financement, simulateur « Et si… ? »',
+        fr: 'Budget par poste, devis comparés, paiements et échéances, financement, simulateur « Et si… ? »',
         en: 'Budget by item, quotes side by side, payments and due dates, funding, a “What if…?” simulator',
       },
       {
@@ -306,7 +306,7 @@ export const shots = {
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'La page de réservation : une carte de Paris et de sa banlieue, et le formulaire « Calculer votre tarif ».',
+        fr: 'La page de réservation : une carte de Paris et de sa banlieue, et le formulaire « Calculer votre tarif ».',
         en: 'The booking page: a map of Paris and its suburbs, and the “Calculate your fare” form.',
       },
     },
@@ -315,7 +315,7 @@ export const shots = {
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'La page des forfaits : Roissy-Charles-de-Gaulle à partir de 95 €, Orly 70 €, Le Bourget 75 €.',
+        fr: 'La page des forfaits : Roissy-Charles-de-Gaulle à partir de 95 €, Orly 70 €, Le Bourget 75 €.',
         en: 'The flat rates page: Roissy-Charles-de-Gaulle from €95, Orly €70, Le Bourget €75.',
       },
     },
@@ -351,7 +351,7 @@ export const shots = {
       width: 780,
       height: 1688,
       alt: {
-        fr: 'Le village au début du jeu, et Ginette, écharpe dorée et tricot en main : « La Bande du Grand Morse a gelé la colonie. »',
+        fr: 'Le village au début du jeu, et Ginette, écharpe dorée et tricot en main : « La Bande du Grand Morse a gelé la colonie. »',
         en: 'The village at the start of the game, and Ginette, golden scarf and knitting in hand, explaining that the Walrus Gang froze the colony.',
       },
     },
@@ -361,7 +361,7 @@ export const shots = {
       width: 600,
       height: 1298,
       alt: {
-        fr: 'Vidéo d’une bataille : « À l’abordage ! », le Brise-glace approche du Repaire du Soigneur, les escouades de pingouins débarquent et attaquent les défenses.',
+        fr: 'Vidéo d’une bataille : « À l’abordage ! », le Brise-glace approche du Repaire du Soigneur, les escouades de pingouins débarquent et attaquent les défenses.',
         en: 'Video of a battle: “À l’abordage!”, the Icebreaker nears the Healer’s Lair, the penguin squads land and attack the defences.',
       },
     },
@@ -399,7 +399,7 @@ export const shots = {
       width: 780,
       height: 1688,
       alt: {
-        fr: 'La page qu’ouvre un foyer avec son lien, sur téléphone : l’invitation de Camille & Alex, la date, le lieu, puis « Qui sera présent ? ».',
+        fr: 'La page qu’ouvre un foyer avec son lien, sur téléphone : l’invitation de Camille & Alex, la date, le lieu, puis « Qui sera présent ? ».',
         en: 'The page a household opens from its link, on a phone: Camille & Alex’s invitation, date and venue, then “Who will be there?”.',
       },
     },
@@ -410,7 +410,7 @@ export const shots = {
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'L’accueil du Noël des copains : « Qui offre à qui ? », et le formulaire pour préparer l’échange.',
+        fr: 'L’accueil du Noël des copains : « Qui offre à qui ? », et le formulaire pour préparer l’échange.',
         en: 'The Noël des copains home page: “Who gives to whom?”, and the form to set up the exchange.',
       },
     },
@@ -419,7 +419,7 @@ export const shots = {
       width: 780,
       height: 1688,
       alt: {
-        fr: 'La page secrète de Lucie : une roue avec les prénoms des autres participants, et le bouton « Faire tourner la roue ».',
+        fr: 'La page secrète de Lucie : une roue avec les prénoms des autres participants, et le bouton « Faire tourner la roue ».',
         en: 'Lucie’s secret page: a wheel with the other participants’ names, and a “Spin the wheel” button.',
       },
     },
@@ -428,7 +428,7 @@ export const shots = {
       width: 780,
       height: 1688,
       alt: {
-        fr: 'Après le tour de roue : une étiquette « Pour Paul, de la part de Lucie », et la liste d’envies de Paul.',
+        fr: 'Après le tour de roue : une étiquette « Pour Paul, de la part de Lucie », et la liste d’envies de Paul.',
         en: 'After the spin: a gift tag “For Paul, from Lucie”, and Paul’s wish list.',
       },
     },
@@ -512,23 +512,19 @@ export const career: Step[] = [
 export const skills: { group: Localized; items: string[] }[] = [
   {
     group: { fr: 'Front', en: 'Front end' },
-    items: ['Vue 3', 'Nuxt', 'TypeScript', 'Tailwind CSS', 'Vuetify', 'PrimeVue', 'Sass', 'three.js', 'GSAP'],
+    items: ['Vue 3', 'Nuxt', 'TypeScript', 'Tailwind CSS', 'shadcn-vue', 'Vuetify', 'PrimeVue', 'Sass', 'three.js', 'GSAP'],
   },
   {
     group: { fr: 'Back', en: 'Back end' },
-    items: ['Laravel', 'PHP', 'Express', 'Inertia', 'MySQL', 'PostgreSQL', 'Firebase'],
+    items: ['Laravel', 'PHP', 'MySQL', 'PostgreSQL', 'Inertia', 'Express', 'Firebase'],
   },
   {
     group: { fr: 'Mobile', en: 'Mobile' },
     items: ['PWA', 'Capacitor', 'React Native'],
   },
   {
-    group: { fr: 'DevOps', en: 'DevOps' },
-    items: ['Docker', 'CI/CD', 'Git flow'],
-  },
-  {
-    group: { fr: 'Et autour', en: 'And around it' },
-    items: ['Claude Code', 'UML / Merise', 'Photoshop', 'Illustrator'],
+    group: { fr: 'DevOps & outils', en: 'DevOps & tooling' },
+    items: ['Docker', 'Claude Code', 'AWS', 'CI/CD', 'Git'],
   },
 ]
 
@@ -546,7 +542,7 @@ export const legal = {
 }
 
 /** The core of the stack, picked out in yellow in the toolbox. */
-export const coreSkills = new Set(['Vue 3', 'Nuxt', 'TypeScript', 'Laravel'])
+export const coreSkills = new Set(['Laravel', 'Nuxt', 'Vue 3', 'TypeScript', 'Docker', 'Tailwind CSS', 'PHP', 'MySQL', 'PostgreSQL', 'Claude Code'])
 
 /** What I can take on for a client. Grounded in the projects above. */
 export const services: { title: Localized; text: Localized; proof: Localized }[] = [
@@ -564,7 +560,7 @@ export const services: { title: Localized; text: Localized; proof: Localized }[]
       fr: 'L’outil interne qui remplace le tableur : suivi des commandes, plannings, clients, exports. Pensé pour ceux qui l’utilisent tous les jours.',
       en: 'The in-house tool that replaces the spreadsheet: orders, schedules, customers, exports. Built for the people who use it every day.',
     },
-    proof: { fr: 'Mon quotidien chez CICD depuis 2018', en: 'My day job at CICD since 2018' },
+    proof: { fr: 'Comme le back-office de Move Taxi Moto, et mon quotidien chez CICD depuis 2018', en: 'Like the Move Taxi Moto back office, and my day job at CICD since 2018' },
   },
   {
     title: { fr: 'Applis installables et mobiles', en: 'Installable and mobile apps' },
