@@ -1,6 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+// Canonical, hreflang, sitemap and share images are baked in at `generate`: fall back to the
+// real domain, so a build without the variable never ships localhost URLs.
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://maxime-leclerc.com'
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-01',
