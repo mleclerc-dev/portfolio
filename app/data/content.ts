@@ -8,7 +8,7 @@ export const person = {
   email: 'mleclerc.dev@gmail.com',
   location: 'Urville-Nacqueville',
   /** Portrait in /public (e.g. '/me.jpg'); while empty, the About section shows the mark instead. */
-  photo: '',
+  photo: '/portrait.webp',
   /** The CV, generated from /cv into /public/cv */
   cv: { fr: '/cv/maxime-leclerc-cv-fr.pdf', en: '/cv/maxime-leclerc-cv-en.pdf' } as Localized,
   // Add public profile URLs here; empty ones are not shown.
