@@ -20,6 +20,8 @@ const lang = computed(() => locale.value as Locale)
     </figcaption>
     <img
       :src="shot.src"
+      :srcset="srcsetOf(shot.src, shot.width)"
+      sizes="(min-width: 1024px) 60vw, 100vw"
       :width="shot.width"
       :height="shot.height"
       :alt="shot.alt[lang]"

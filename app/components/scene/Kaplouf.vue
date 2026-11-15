@@ -23,6 +23,8 @@ const s = shots.kaplouf
     </div>
     <img
       :src="s.soldier.src"
+      :srcset="srcsetOf(s.soldier.src, s.soldier.width)"
+      sizes="(min-width: 640px) min(32vw, 30rem), 52vw"
       alt=""
       aria-hidden="true"
       width="1200"

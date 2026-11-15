@@ -36,8 +36,15 @@ onMounted(() => {
   const ctx = el?.getContext('2d')
   if (!el || !ctx) return
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  // The label is drawn in the hand-written face: make sure it is loaded
-  if (props.rider) document.fonts.load('600 24px Caveat').then(() => draw(reduced ? 0 : performance.now()), () => {})
+  // The label is drawn in the hand-written face. It is only a word or two, so it waits for the
+  // page to finish loading (a fallback face stands in until then) instead of competing with
+  // the fonts and scripts the first paint needs.
+  if (props.rider) {
+    const loadHand = () => document.fonts.load('600 24px Caveat').then(() => draw(reduced ? 0 : performance.now()), () => {})
+    const whenIdle = () => ('requestIdleCallback' in window ? requestIdleCallback(loadHand, { timeout: 2000 }) : setTimeout(loadHand, 300))
+    if (document.readyState === 'complete') whenIdle()
+    else window.addEventListener('load', whenIdle, { once: true })
+  }
   let w = 0
   let h = 0
   let raf = 0

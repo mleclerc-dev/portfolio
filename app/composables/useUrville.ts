@@ -142,6 +142,13 @@ export function fetchUrville(): Promise<UrvilleNow | null> {
 
 /** Reactive version for components: null while loading, false when offline. */
 export function useUrville() {
+  // Open the connections to both APIs while the page loads, so the first readings arrive sooner
+  useHead({
+    link: [
+      { rel: 'preconnect', href: 'https://api.open-meteo.com', crossorigin: 'anonymous', key: 'pc-meteo' },
+      { rel: 'preconnect', href: 'https://marine-api.open-meteo.com', crossorigin: 'anonymous', key: 'pc-marine' },
+    ],
+  })
   const now = ref<UrvilleNow | null | false>(null)
   onMounted(() => {
     fetchUrville().then((d) => (now.value = d ?? false))
