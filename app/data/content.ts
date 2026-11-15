@@ -343,6 +343,7 @@ export const shots = {
       src: '/projects/kaplouf-soldier.webp',
       width: 1200,
       height: 1200,
+      // Decorative cut-out over the battle image (which carries the description): empty alt on purpose
       alt: { fr: '', en: '' },
     },
     ginette: {
@@ -558,7 +559,7 @@ export const services: { title: Localized; text: Localized; proof: Localized }[]
       fr: 'Une appli web qui s’installe sur le téléphone et marche hors ligne, ou une vraie appli Android quand il le faut.',
       en: 'A web app that installs on a phone and works offline, or a native Android app when it calls for one.',
     },
-    proof: { fr: 'Comme Mariage et Kaplouf', en: 'Like Mariage and Kaplouf' },
+    proof: { fr: 'Comme Mariage, et Kaplouf en cours de développement', en: 'Like Mariage, with Kaplouf in development' },
   },
 ]
 
