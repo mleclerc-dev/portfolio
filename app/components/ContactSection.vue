@@ -54,7 +54,7 @@ async function copy() {
       </a>
 
       <div class="mt-8 grid gap-3 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <div class="panel self-start p-6 sm:p-7">
+        <div class="panel self-start p-6 sm:p-7 lg:sticky lg:top-24">
           <p class="text-[1.15rem] leading-[1.55] text-ink/90">{{ t('contact.text') }}</p>
           <p class="mt-4 flex items-start gap-2 font-mono text-[0.78rem] leading-relaxed text-ink">
             <span class="mt-[0.45em] size-2 shrink-0 rounded-full bg-[#4ade80]" />{{ t('contact.availability') }}
@@ -98,10 +98,10 @@ async function copy() {
           </div>
         </form>
       </div>
-      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-8 font-mono text-[0.8rem] uppercase tracking-[0.08em]">
+      <div class="mt-10 flex flex-wrap items-center gap-3 border-t border-line pt-8 font-mono text-[0.8rem] uppercase tracking-[0.08em]">
         <button
           type="button"
-          class="rounded-full border border-ink/30 px-4 py-2 transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+          class="inline-flex h-11 items-center rounded-full border border-ink/30 px-4 uppercase transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-paper"
           @click="copy"
         >
           {{ copied ? t('contact.copied') : t('contact.copy') }}
@@ -113,9 +113,9 @@ async function copy() {
           :href="l.href"
           rel="me noopener"
           target="_blank"
-          class="link-underline"
-        >{{ l.label }}</a>
-        <a :href="person.cv[lang]" download class="link-underline">{{ t('about.cv') }}</a>
+          class="inline-flex h-11 items-center gap-2 rounded-full border border-line px-4 transition-colors duration-200 hover:border-ink"
+        >{{ l.label }} <span aria-hidden="true" class="text-muted">↗</span></a>
+        <a :href="person.cv[lang]" download class="inline-flex h-11 items-center gap-2 rounded-full border border-line px-4 transition-colors duration-200 hover:border-ink">{{ t('about.cv') }} <span aria-hidden="true" class="text-muted">↓</span></a>
       </div>
     </div>
   </section>

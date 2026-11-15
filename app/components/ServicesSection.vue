@@ -3,7 +3,10 @@ import { process, services, type Locale } from '~/data/content'
 
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as Locale)
+const localePath = useLocalePath()
 const pad = (n: number) => String(n).padStart(2, '0')
+// The project each service's proof line points to, in the order of `services`
+const proofProject = ['move-taxi', 'move-taxi', 'mariage']
 </script>
 
 <template>
@@ -20,12 +23,16 @@ const pad = (n: number) => String(n).padStart(2, '0')
     </div>
 
     <ul class="grid gap-px overflow-hidden rounded-[16px] border border-line bg-line md:grid-cols-3">
-      <li v-for="s in services" :key="s.title.fr" class="group flex flex-col bg-[var(--surface)] p-6 transition-colors hover:bg-[#1b1b1f] sm:p-8">
+      <li v-for="(s, i) in services" :key="s.title.fr" class="group flex flex-col bg-[var(--surface)] p-6 transition-colors hover:bg-[#1b1b1f] sm:p-8">
         <h3 class="font-display text-[1.6rem] font-bold leading-[1.1] tracking-[-0.01em] [font-stretch:88%]">{{ s.title[lang] }}</h3>
         <p class="mt-4 flex-1 text-[1.1rem] leading-[1.5] text-ink/95">{{ s.text[lang] }}</p>
-        <p class="mt-8 flex items-center gap-2 font-mono text-[0.75rem] text-muted transition-colors group-hover:text-ink">
-          <span aria-hidden="true" class="text-accent">→</span>{{ s.proof[lang] }}
-        </p>
+        <NuxtLink
+          :to="localePath(`/projets/${proofProject[i]}`)"
+          class="mt-8 flex min-h-11 items-center gap-2 font-mono text-[0.75rem] text-muted transition-colors hover:text-ink group-hover:text-ink"
+        >
+          <span aria-hidden="true" class="text-accent transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+          <span class="link-underline">{{ s.proof[lang] }}</span>
+        </NuxtLink>
       </li>
     </ul>
 
@@ -39,6 +46,14 @@ const pad = (n: number) => String(n).padStart(2, '0')
         <p class="mt-2 text-[1.05rem] leading-[1.5] text-ink/90">{{ step.text[lang] }}</p>
       </li>
     </ol>
+
+    <!-- And the way in, before the long read that follows -->
+    <div class="mt-12 flex flex-wrap items-center justify-between gap-6 rounded-[16px] border border-line px-6 py-6 sm:px-8">
+      <p class="text-[clamp(1.3rem,2.2vw,1.7rem)] font-medium leading-snug">{{ t('contact.heading') }}</p>
+      <a href="#contact" class="group inline-flex h-12 items-center gap-2 rounded-full bg-[var(--yellow)] px-6 font-mono text-[0.78rem] uppercase tracking-[0.1em] text-[var(--on-yellow)] transition-transform duration-200 hover:-translate-y-0.5">
+        {{ t('hero.cta_contact') }} <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+      </a>
+    </div>
     </div>
   </section>
 </template>

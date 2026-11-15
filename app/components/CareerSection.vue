@@ -55,7 +55,7 @@ const cicd = Math.round(today - 2018.1)
           v-for="y in labels"
           :key="y"
           class="absolute top-0 -translate-x-1/2 font-mono text-[0.7rem] tabular-nums text-muted"
-          :class="{ 'max-sm:hidden': today - y < 4 }"
+          :class="{ 'max-lg:hidden': today - y < 4 }"
           :style="{ left: pos(y) }"
         >{{ y }}</span>
         <span class="absolute right-0 top-0 font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em] text-ink">{{ t('career.today') }}</span>

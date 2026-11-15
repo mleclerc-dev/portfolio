@@ -44,7 +44,7 @@ const eur = (n: number) =>
       <svg viewBox="0 0 120 80" class="absolute -right-6 -top-4 w-32 opacity-25" fill="none">
         <circle cx="44" cy="40" r="26" stroke="#fff" stroke-width="5" /><circle cx="76" cy="40" r="26" stroke="#fff" stroke-width="5" />
       </svg>
-      <p class="text-[0.68rem] text-white/75">{{ t('preview.mariage_date') }}</p>
+      <p class="pr-14 text-[0.68rem] text-white/75">{{ t('preview.mariage_date') }}</p>
       <p class="mt-3 text-[2.6rem] font-extrabold leading-none tracking-[-0.04em] tabular-nums">233 <span class="text-[1rem] font-semibold tracking-normal">{{ t('preview.mariage_days') }}</span></p>
       <div class="mt-4 flex justify-between text-[0.68rem] text-white/75"><span>{{ t('preview.mariage_prep') }}</span><span>16 %</span></div>
       <div class="mt-1.5 h-1.5 rounded-full bg-white/15"><div class="pv-grow h-full w-[16%] rounded-full bg-[#3fbf94]" /></div>

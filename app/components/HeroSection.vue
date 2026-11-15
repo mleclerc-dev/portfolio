@@ -36,22 +36,22 @@ const seaLabel = computed(() => {
     <h1 class="hero-h1 mt-6 font-display uppercase leading-[0.84]">
       <span class="sr-only">{{ t('hero.title') }}</span>
       <span aria-hidden="true" class="block text-[clamp(2.6rem,13vw,13rem)]">
-        <span class="rise block"><FitLine :vh="0.21" :max="150"><KineticText :text="t('hero.line_1')" conserve /></FitLine></span>
+        <span class="rise block"><FitLine :vh="0.21" :max="150"><KineticText :text="t('hero.line_1')" conserve /></FitLine></span>{{ ' ' }}
         <span class="rise block [--rise-delay:120ms]">
           <FitLine :vh="0.21" :max="150"><KineticText :text="t('hero.line_2')" conserve />&#32;<KineticText :text="t('hero.someone')" conserve class="text-[var(--yellow)]" /></FitLine>
         </span>
       </span>
     </h1>
 
-    <div class="hero-lede rise mt-10 grid items-end gap-x-10 gap-y-8 [--rise-delay:240ms] md:grid-cols-[minmax(0,1fr)_auto]">
+    <div class="hero-lede rise mt-10 grid items-end gap-x-10 gap-y-8 [--rise-delay:240ms] lg:grid-cols-[minmax(0,1fr)_auto]">
       <p class="max-w-[34rem] font-display text-[clamp(1.15rem,1.55vw,1.4rem)] font-medium leading-[1.3] tracking-[-0.005em] [font-stretch:92%]">
         {{ t('hero.lede') }}
       </p>
       <div class="flex flex-wrap gap-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] max-sm:gap-2">
-        <a href="#projets" class="group inline-flex h-12 items-center gap-2 rounded-full bg-[var(--yellow)] px-6 max-sm:h-11 max-sm:px-4 max-sm:text-[0.7rem] text-[var(--on-yellow)] transition-transform duration-200 hover:-translate-y-0.5">
+        <a href="#projets" class="group inline-flex h-12 items-center gap-2 rounded-full bg-[var(--yellow)] px-6 max-sm:w-full max-sm:justify-center max-sm:text-[0.75rem] text-[var(--on-yellow)] transition-transform duration-200 hover:-translate-y-0.5">
           {{ t('hero.cta_work') }} <span aria-hidden="true" class="transition-transform group-hover:translate-y-0.5">↓</span>
         </a>
-        <a href="#contact" class="group inline-flex h-12 items-center gap-2 rounded-full border border-ink/40 bg-ink/[0.07] px-6 backdrop-blur-sm max-sm:h-11 max-sm:px-4 max-sm:text-[0.7rem] transition-colors duration-200 hover:border-ink hover:bg-ink/[0.12]">
+        <a href="#contact" class="group inline-flex h-12 items-center gap-2 rounded-full border border-ink/40 bg-ink/[0.07] px-6 backdrop-blur-sm max-sm:w-full max-sm:justify-center max-sm:text-[0.75rem] transition-colors duration-200 hover:border-ink hover:bg-ink/[0.12]">
           {{ t('hero.cta_contact') }} <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
         </a>
       </div>

@@ -25,11 +25,11 @@ const live = computed(() => (time.value ? t('footer.live', { time: time.value })
     </p>
     <div class="mx-auto grid max-w-[90rem] gap-6 px-4 py-8 font-mono text-[0.72rem] leading-relaxed text-muted sm:px-8 md:grid-cols-[minmax(0,1fr)_auto_auto] md:items-center md:gap-10">
       <p class="max-w-[70ch]">{{ t('footer.colophon') }}</p>
-      <p class="flex flex-wrap gap-x-5 gap-y-1">
+      <p class="flex flex-wrap gap-x-5 [&>a]:py-2.5">
         <a :href="`mailto:${person.email}`" class="link-underline">{{ person.email }}</a>
         <a v-for="l in links" :key="l.label" :href="l.href" target="_blank" rel="me noopener" class="link-underline">{{ l.label }}</a>
       </p>
-      <p class="flex flex-wrap items-center gap-x-5 gap-y-1">
+      <p class="flex flex-wrap items-center gap-x-5 [&>*]:py-2.5">
         <span v-if="live" class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-[#4ade80] blink" />{{ live }}</span>
         <NuxtLink :to="localePath('/mentions-legales')" class="link-underline">{{ t('footer.legal') }}</NuxtLink>
         <MotionToggle class="link-underline text-muted" />

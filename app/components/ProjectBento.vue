@@ -90,7 +90,7 @@ onMounted(() => {
             :data-scene="p.id"
             class="tile scene group relative flex h-full flex-col overflow-hidden rounded-[18px] p-6 sm:p-8"
             @pointermove="glow"
-            :class="{ 'pt-14 sm:pt-16': p.id === 'noel', 'min-h-[32rem] sm:min-h-[36rem]': p.id === 'kaplouf' }"
+            :class="{ 'pt-14 sm:pt-16': p.id === 'noel' || p.id === 'mariage', 'min-h-[32rem] max-lg:pb-[18.5rem] sm:min-h-[36rem]': p.id === 'kaplouf' }"
           >
             <!-- Top line: provenance and status -->
             <div class="flex flex-wrap items-center justify-between gap-3 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted">
@@ -140,12 +140,14 @@ onMounted(() => {
               <img
                 v-if="p.id === 'kaplouf'"
                 src="/projects/kaplouf-soldier.webp"
+                srcset="/projects/kaplouf-soldier-800.webp 800w, /projects/kaplouf-soldier.webp 1200w"
+                sizes="(min-width: 1024px) 24rem, 16rem"
                 alt=""
                 width="1200"
                 height="1200"
                 loading="lazy"
                 decoding="async"
-                class="kp-float absolute bottom-[8%] left-1/2 w-[72%] max-w-[24rem] -translate-x-1/2 drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)]"
+                class="kp-float absolute bottom-6 left-1/2 w-[60%] max-w-[16rem] -translate-x-1/2 drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)] lg:bottom-[8%] lg:w-[72%] lg:max-w-[24rem]"
               >
               <template v-if="p.id === 'kaplouf'">
                 <span
