@@ -532,6 +532,19 @@ export const skills: { group: Localized; items: string[] }[] = [
   },
 ]
 
+/** Legal notice: the publisher and the host (only what the law asks to show). */
+export const legal = {
+  status: { fr: 'Entrepreneur individuel (micro-entrepreneur)', en: 'Sole trader (French micro-entrepreneur)' } as Localized,
+  siret: '918 609 512 00028',
+  activity: { fr: 'Programmation informatique (NAF 6201Z)', en: 'Computer programming (NAF 6201Z)' } as Localized,
+  address: '12 route de la Seroterie, 50460 La Hague, France',
+  host: {
+    name: 'Cloudflare, Inc.',
+    address: { fr: '101 Townsend St, San Francisco, CA 94107, États-Unis', en: '101 Townsend St, San Francisco, CA 94107, USA' } as Localized,
+    url: 'https://www.cloudflare.com',
+  },
+}
+
 /** The core of the stack, picked out in yellow in the toolbox. */
 export const coreSkills = new Set(['Vue 3', 'Nuxt', 'TypeScript', 'Laravel'])
 

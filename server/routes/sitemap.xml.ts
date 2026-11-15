@@ -4,7 +4,7 @@ import { projects } from '../../app/data/content'
 // Prerendered at build time into a static sitemap.xml.
 export default defineEventHandler((event) => {
   const site = useRuntimeConfig(event).public.siteUrl.replace(/\/$/, '')
-  const pages = ['/', ...projects.map((p) => `/projets/${p.slug}`)]
+  const pages = ['/', '/mentions-legales', ...projects.map((p) => `/projets/${p.slug}`)]
   const url = (lang: 'fr' | 'en', path: string) => `${site}${lang === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path === '/' ? '' : path}` || site
   const today = new Date().toISOString().slice(0, 10)
   const entries = pages.flatMap((path) =>

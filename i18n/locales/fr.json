@@ -122,9 +122,14 @@
     "f_sent": "Votre messagerie s’ouvre avec le message prêt à partir. Rien ne s’est ouvert ? Écrivez à {email}.",
     "f_subject": "Un projet"
   },
+  "legal": {
+    "kicker": "Le site",
+    "title": "Mentions légales"
+  },
   "footer": {
     "colophon": "Fait avec Nuxt. Composé en Anybody, Instrument Sans et IBM Plex Mono, plus les caractères de chaque projet. Captures prises sur les vraies applis ; pour les projets perso, avec des données de démo.",
     "top": "Haut de page",
+    "legal": "Mentions légales",
     "live": "{time} à Urville"
   },
   "taxi": {

@@ -68,7 +68,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/', '/en', '/cv', '/en/cv', '/sitemap.xml', '/robots.txt',
+        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/mentions-legales', '/sitemap.xml', '/robots.txt',
         // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
         ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
       ],

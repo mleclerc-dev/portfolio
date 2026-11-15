@@ -2,6 +2,7 @@
 import { person } from '~/data/content'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 const links = person.links.filter((l) => l.href)
 // On the home page the footer is the sea again; on a project page it stays in the project's colours.
 const route = useRoute()
@@ -30,6 +31,7 @@ const live = computed(() => (time.value ? t('footer.live', { time: time.value })
       </p>
       <p class="flex flex-wrap items-center gap-x-5 gap-y-1">
         <span v-if="live" class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-[#4ade80] blink" />{{ live }}</span>
+        <NuxtLink :to="localePath('/mentions-legales')" class="link-underline">{{ t('footer.legal') }}</NuxtLink>
         <MotionToggle class="link-underline text-muted" />
         <a href="#top" class="link-underline shrink-0">{{ t('footer.top') }} ↑</a>
       </p>

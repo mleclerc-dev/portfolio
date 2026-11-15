@@ -122,9 +122,14 @@
     "f_sent": "Your mail app opens with the message ready to go. Nothing opened? Write to {email}.",
     "f_subject": "A project"
   },
+  "legal": {
+    "kicker": "The site",
+    "title": "Legal notice"
+  },
   "footer": {
     "colophon": "Made with Nuxt. Set in Anybody, Instrument Sans and IBM Plex Mono, plus each project’s own typefaces. Screenshots taken from the real apps; the side projects show demo data.",
     "top": "Back to top",
+    "legal": "Legal notice",
     "live": "{time} in Urville"
   },
   "taxi": {
