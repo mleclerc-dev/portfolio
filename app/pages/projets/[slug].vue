@@ -39,16 +39,30 @@ useHead(() => ({
       key: 'ld-project',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': p.value.id === 'kaplouf' ? 'VideoGame' : 'SoftwareApplication',
+        // A game for Kaplouf; otherwise a piece of work (SoftwareApplication would ask for offers and ratings)
+        '@type': p.value.id === 'kaplouf' ? 'VideoGame' : 'CreativeWork',
         name: p.value.name[lang.value],
         description: p.value.summary[lang.value],
-        applicationCategory: p.value.id === 'kaplouf' ? 'GameApplication' : 'WebApplication',
-        operatingSystem: p.value.id === 'kaplouf' ? 'Android, Web' : 'Web',
+        about: { '@type': 'Thing', name: p.value.kind[lang.value] },
+        ...(p.value.year ? { dateCreated: p.value.year } : {}),
         ...(p.value.url ? { url: p.value.url } : {}),
         image: `${site}/og/${p.value.slug}-${lang.value}.png`,
         author: { '@id': `${site}/#person` },
         creator: { '@type': 'Person', name: 'Maxime Leclerc', url: site },
         keywords: p.value.stack.join(', '),
+      }),
+    },
+    // Home › this project, for the search result's breadcrumb
+    {
+      type: 'application/ld+json',
+      key: 'ld-breadcrumb',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Maxime Leclerc', item: `${site}${localePath('/')}`.replace(/\/$/, '') || site },
+          { '@type': 'ListItem', position: 2, name: p.value.name[lang.value], item: `${site}${localePath(`/projets/${p.value.slug}`)}` },
+        ],
       }),
     },
   ],
@@ -234,10 +248,12 @@ const dot = { live: 'bg-[#4ade80]', used: 'bg-accent', wip: 'bg-[#f0c04a]' }
     </section>
 
     <!-- Next -->
-    <nav :aria-label="t('page.more')" class="mx-auto mt-24 max-w-[90rem] px-4 pb-24 sm:mt-32 sm:px-8">
+    <nav :aria-label="t('page.more')" class="mx-auto mt-24 max-w-[90rem] px-4 pb-32 sm:mt-32 sm:px-8 sm:pb-40">
       <div class="flex items-center justify-between border-b border-line pb-3 font-mono text-[0.75rem] text-muted">
-        <span>{{ t('page.next') }}</span>
-        <NuxtLink :to="localePath(`/projets/${prev.slug}`)" class="transition-colors hover:text-ink">← {{ prev.name[lang] }}</NuxtLink>
+        <NuxtLink :to="localePath(`/projets/${prev.slug}`)" class="flex min-h-11 items-center transition-colors hover:text-ink">
+          <span class="sr-only">{{ t('page.prev') }} :</span>← {{ prev.name[lang] }}
+        </NuxtLink>
+        <span>{{ t('page.next') }} →</span>
       </div>
       <NuxtLink :to="localePath(`/projets/${next.slug}`)" :data-swatch="next.id" class="group mt-8 flex items-end justify-between gap-6">
         <span

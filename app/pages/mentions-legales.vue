@@ -7,7 +7,12 @@ import { legal, person, type Locale } from '~/data/content'
  */
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as Locale)
-useSeoMeta({ title: () => `${t('legal.title')} · Maxime Leclerc` })
+useSeoMeta({
+  title: () => `${t('legal.title')} · Maxime Leclerc`,
+  description: () => t('legal.description'),
+  ogTitle: () => `${t('legal.title')} · Maxime Leclerc`,
+  ogDescription: () => t('legal.description'),
+})
 
 const fr = computed(() => lang.value === 'fr')
 </script>

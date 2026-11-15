@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { person, skills } from '~/data/content'
+import { person, services, skills, type Locale } from '~/data/content'
 
 const { t, locale } = useI18n()
 const config = useRuntimeConfig()
 const i18nHead = useLocaleHead({ seo: true })
 const site = config.public.siteUrl.replace(/\/$/, '')
+// One address for the person and the activity, as on the legal notice (Urville-Nacqueville is part of La Hague)
+const address = { '@type': 'PostalAddress', addressLocality: 'La Hague', postalCode: '50460', addressRegion: 'Normandie', addressCountry: 'FR' }
 
 useHead(() => ({
   htmlAttrs: { lang: i18nHead.value.htmlAttrs.lang },
@@ -24,10 +26,38 @@ useHead(() => ({
             name: 'Maxime Leclerc',
             jobTitle: t('meta.job'),
             url: site,
-            email: `mailto:${person.email}`,
-            address: { '@type': 'PostalAddress', addressLocality: 'Urville-Nacqueville', addressRegion: 'Normandie', addressCountry: 'FR' },
+            email: person.email,
+            ...(person.photo ? { image: `${site}${person.photo}` } : {}),
+            address,
             sameAs: person.links.map((l) => l.href),
             knowsAbout: skills.flatMap((s) => s.items),
+          },
+          // The freelance activity itself, for local and service searches
+          {
+            '@type': 'ProfessionalService',
+            '@id': `${site}/#service`,
+            name: t('meta.site'),
+            url: site,
+            description: t('meta.description'),
+            ...(person.photo ? { image: `${site}${person.photo}` } : {}),
+            email: person.email,
+            address,
+            areaServed: [
+              { '@type': 'City', name: 'Cherbourg-en-Cotentin' },
+              { '@type': 'AdministrativeArea', name: 'Manche' },
+              { '@type': 'AdministrativeArea', name: 'Normandie' },
+              { '@type': 'Country', name: 'France' },
+            ],
+            founder: { '@id': `${site}/#person` },
+            knowsLanguage: ['fr', 'en'],
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: t('services.heading'),
+              itemListElement: services.map((s) => ({
+                '@type': 'Offer',
+                itemOffered: { '@type': 'Service', name: s.title[locale.value as Locale], description: s.text[locale.value as Locale] },
+              })),
+            },
           },
           {
             '@type': 'WebSite',
