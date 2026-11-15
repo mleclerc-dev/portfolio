@@ -26,13 +26,13 @@ const data = computed(() => (now.value ? now.value : null))
   <div class="relative flex size-full flex-col overflow-hidden bg-[#0b0b0c] p-6 text-[#f2f2ef] sm:p-7">
     <p class="relative flex items-center justify-between font-mono text-[0.7rem] uppercase tracking-[0.12em] text-[#b4b4ba]">
       <span>{{ t('about.card_coords') }}</span>
-      <span class="flex items-center gap-1.5 normal-case tracking-normal"><span class="size-1.5 rounded-full bg-[#4ade80]" />{{ t('about.card_live') }}</span>
+      <span v-if="now !== false" class="flex items-center gap-1.5 normal-case tracking-normal"><span class="size-1.5 rounded-full bg-[#4ade80]" />{{ t('about.card_live') }}</span>
     </p>
     <p data-face="host" class="relative mt-4 text-[clamp(1.7rem,2.6vw,2.3rem)] uppercase leading-[0.95]">Urville-<br>Nacqueville</p>
 
-    <p class="relative mt-6">
+    <p v-if="time" class="relative mt-6">
       <span class="block font-mono text-[0.7rem] uppercase tracking-[0.12em] text-[#b4b4ba]">{{ t('about.card_time') }}</span>
-      <span class="mt-1 block font-display text-[clamp(3rem,5vw,4.5rem)] font-extrabold leading-none tabular-nums [font-stretch:85%]">{{ time || '––:––' }}</span>
+      <span class="mt-1 block font-display text-[clamp(3rem,5vw,4.5rem)] font-extrabold leading-none tabular-nums [font-stretch:85%]">{{ time }}</span>
     </p>
 
     <!-- Today's tide -->
@@ -41,16 +41,16 @@ const data = computed(() => (now.value ? now.value : null))
     </div>
 
     <div class="relative">
-      <dl class="grid grid-cols-3 gap-3 border-t border-white/15 pt-4">
+      <dl v-if="data" class="grid grid-cols-3 gap-3 border-t border-white/15 pt-4">
         <div>
           <dt class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#b4b4ba]">{{ t('about.card_air') }}</dt>
-          <dd class="mt-1 text-[1.15rem] font-semibold tabular-nums">{{ data ? `${num(data.temp)} °C` : '—' }}</dd>
-          <dd v-if="data" class="text-[0.75rem] text-[#b4b4ba]">{{ t(`term.sky.${data.sky}`) }}</dd>
+          <dd class="mt-1 text-[1.15rem] font-semibold tabular-nums">{{ num(data.temp) }} °C</dd>
+          <dd class="text-[0.75rem] text-[#b4b4ba]">{{ t(`term.sky.${data.sky}`) }}</dd>
         </div>
         <div>
           <dt class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#b4b4ba]">{{ t('term.wind') }}</dt>
-          <dd class="mt-1 text-[1.15rem] font-semibold tabular-nums">{{ data ? `${num(data.wind)} km/h` : '—' }}</dd>
-          <dd v-if="data" class="text-[0.75rem] text-[#b4b4ba]">{{ t('about.card_from', { dir: compass(data.windDeg, locale) }) }}</dd>
+          <dd class="mt-1 text-[1.15rem] font-semibold tabular-nums">{{ num(data.wind) }} km/h</dd>
+          <dd class="text-[0.75rem] text-[#b4b4ba]">{{ t('about.card_from', { dir: compass(data.windDeg, locale) }) }}</dd>
         </div>
         <div>
           <dt class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-[#b4b4ba]">{{ t('term.swell') }}</dt>
