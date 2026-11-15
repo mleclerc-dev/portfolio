@@ -143,7 +143,7 @@ async function run(raw: string) {
       services.forEach((s) => out(`→ ${s.title[lang.value]}  ·  ${s.proof[lang.value]}`))
       break
     case 'stack':
-      skills.forEach((s) => out(`${s.group[lang.value].padEnd(14)} ${s.items.join(', ')}`))
+      skills.forEach((s) => out(`${s.group[lang.value].padEnd(17)} ${s.items.join(', ')}`))
       break
     case 'cv':
       out(t('term.cv_done'), 'ok')
