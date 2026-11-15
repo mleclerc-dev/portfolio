@@ -97,7 +97,8 @@
     "card_coords": "49°40′ N · 1°44′ W",
     "card_rhythm": "one wave every {p} s",
     "skills_title": "The toolbox",
-    "skills_text": "What I use day to day. On an existing project, I work with the stack already in place."
+    "skills_text": "What I use day to day. On an existing project, I work with the stack already in place.",
+    "skills_core": "My core stack"
   },
   "contact": {
     "heading": "Got a project in mind? Let’s talk.",

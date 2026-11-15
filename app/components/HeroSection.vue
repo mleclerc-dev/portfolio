@@ -51,7 +51,7 @@ const seaLabel = computed(() => {
         <a href="#projets" class="group inline-flex h-12 items-center gap-2 rounded-full bg-[var(--yellow)] px-6 max-sm:h-11 max-sm:px-4 max-sm:text-[0.7rem] text-[var(--on-yellow)] transition-transform duration-200 hover:-translate-y-0.5">
           {{ t('hero.cta_work') }} <span aria-hidden="true" class="transition-transform group-hover:translate-y-0.5">↓</span>
         </a>
-        <a href="#contact" class="group inline-flex h-12 items-center gap-2 rounded-full border border-ink/40 px-6 max-sm:h-11 max-sm:px-4 max-sm:text-[0.7rem] transition-colors duration-200 hover:border-ink">
+        <a href="#contact" class="group inline-flex h-12 items-center gap-2 rounded-full border border-ink/40 bg-ink/[0.07] px-6 backdrop-blur-sm max-sm:h-11 max-sm:px-4 max-sm:text-[0.7rem] transition-colors duration-200 hover:border-ink hover:bg-ink/[0.12]">
           {{ t('hero.cta_contact') }} <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
         </a>
       </div>

@@ -531,6 +531,9 @@ export const skills: { group: Localized; items: string[] }[] = [
   },
 ]
 
+/** The core of the stack, picked out in yellow in the toolbox. */
+export const coreSkills = new Set(['Vue 3', 'Nuxt', 'TypeScript', 'Laravel'])
+
 /** What I can take on for a client. Grounded in the projects above. */
 export const services: { title: Localized; text: Localized; proof: Localized }[] = [
   {

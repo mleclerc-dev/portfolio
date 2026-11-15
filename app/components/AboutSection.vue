@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { person, skills, type Locale } from '~/data/content'
+import { coreSkills, person, skills, type Locale } from '~/data/content'
 
 // Who I am: portrait, story, a few facts, how I work, tools, and the CV.
 const { t, locale } = useI18n()
@@ -71,16 +71,35 @@ const lang = computed(() => locale.value as Locale)
         <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-3 border-b border-line pb-6">
           <div>
             <h3 class="eyebrow">{{ t('about.skills') }}</h3>
-            <p data-face="host" class="mt-3 text-[clamp(1.7rem,3vw,2.5rem)] uppercase leading-[0.95]">{{ t('about.skills_title') }}</p>
+            <p data-face="host" class="mt-3 text-[clamp(1.7rem,3vw,2.5rem)] uppercase leading-[0.95]">
+              <!-- Highlighter swipe under the title -->
+              <span class="box-decoration-clone bg-[linear-gradient(transparent_55%,var(--yellow)_55%,var(--yellow)_92%,transparent_92%)] px-1 -mx-1">{{ t('about.skills_title') }}</span>
+            </p>
           </div>
-          <p class="max-w-[30rem] text-[1rem] leading-snug text-muted">{{ t('about.skills_text') }}</p>
+          <div class="max-w-[30rem]">
+            <p class="text-[1rem] leading-snug text-muted">{{ t('about.skills_text') }}</p>
+            <p class="mt-3 flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-muted">
+              <span aria-hidden="true" class="size-2.5 rounded-full bg-[var(--yellow)] ring-1 ring-black/10" />{{ t('about.skills_core') }}
+            </p>
+          </div>
         </div>
         <dl class="mt-6 grid gap-x-6 gap-y-7 sm:grid-cols-2 lg:grid-cols-5">
           <div v-for="s in skills" :key="s.group.fr">
-            <dt class="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-muted">{{ s.group[lang] }}</dt>
+            <dt class="flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-muted">
+              <span aria-hidden="true" class="h-px w-3 bg-[var(--yellow)] [box-shadow:0_0_0_0.5px_var(--yellow)]" />{{ s.group[lang] }}
+            </dt>
             <dd class="mt-3">
               <ul class="flex flex-wrap gap-1.5">
-                <li v-for="item in s.items" :key="item" class="rounded-full border border-line bg-[var(--paper)] px-2.5 py-1 text-[0.88rem] leading-tight">{{ item }}</li>
+                <li
+                  v-for="item in s.items"
+                  :key="item"
+                  class="rounded-full border px-2.5 py-1 text-[0.88rem] leading-tight transition-colors duration-200"
+                  :class="coreSkills.has(item)
+                    ? 'border-[var(--yellow)] bg-[var(--yellow)] font-medium text-[var(--on-yellow)]'
+                    : 'border-line bg-[var(--paper)] hover:border-[var(--yellow)]'"
+                >
+                  {{ item }}
+                </li>
               </ul>
             </dd>
           </div>

@@ -97,7 +97,8 @@
     "card_coords": "49°40′ N · 1°44′ O",
     "card_rhythm": "une vague toutes les {p} s",
     "skills_title": "La boîte à outils",
-    "skills_text": "Ce que j’utilise au quotidien. Sur un projet existant, je m’adapte à la stack en place."
+    "skills_text": "Ce que j’utilise au quotidien. Sur un projet existant, je m’adapte à la stack en place.",
+    "skills_core": "Mon cœur de stack"
   },
   "contact": {
     "heading": "Un projet en tête ? Parlons-en.",

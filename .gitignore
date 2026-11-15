@@ -9,3 +9,6 @@ dist
 .env.*
 !.env.example
 .DS_Store
+
+# Playwright MCP (screenshots, snapshots, logs)
+.playwright-mcp/
