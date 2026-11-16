@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { projects, type Locale } from '~/data/content'
+import { projects, shots, type Locale } from '~/data/content'
 
 /*
  * The projects as a bento grid: one tile per project, painted in its own identity
@@ -94,7 +94,7 @@ onMounted(() => {
             :data-scene="p.id"
             class="tile scene group relative flex h-full flex-col overflow-hidden rounded-[18px] p-6 sm:p-8"
             @pointermove="glow"
-            :class="{ 'pt-14 sm:pt-16': p.id === 'noel' || p.id === 'kaplouf', 'min-h-[32rem] max-lg:pb-[18.5rem] sm:min-h-[36rem]': p.id === 'kaplouf' }"
+            :class="{ 'pt-14 sm:pt-16': p.id === 'noel' || p.id === 'kaplouf' }"
           >
             <!-- Top line: provenance and status -->
             <div class="flex flex-wrap items-center justify-between gap-3 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted">
@@ -138,6 +138,21 @@ onMounted(() => {
             <div v-if="previews[p.id]" class="relative z-20 mt-6" :class="({ taxi: 'h-[22rem] sm:h-[27rem] lg:h-auto lg:min-h-[27rem] lg:flex-1', mariage: 'min-h-[17rem] flex-1', noel: 'min-h-[19rem] flex-1 sm:min-h-[20rem]' } as Record<string, string>)[p.id]">
               <component :is="previews[p.id]" />
             </div>
+            <!-- Kaplouf: the island from above, framed; the penguin steps out of it (below) -->
+            <div v-else-if="p.id === 'kaplouf'" class="relative mt-6 h-[15rem] overflow-hidden rounded-[12px] ring-1 ring-white/10 sm:h-[20rem] lg:h-auto lg:min-h-[18rem] lg:flex-1">
+              <img
+                :src="shots.kaplouf.battle.src"
+                srcset="/projects/kaplouf-battle-wide-1200.webp 1200w, /projects/kaplouf-battle-wide.webp 2400w"
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                :width="shots.kaplouf.battle.width"
+                :height="shots.kaplouf.battle.height"
+                :alt="shots.kaplouf.battle.alt[lang]"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 size-full object-cover object-[60%_50%]"
+              >
+              <div aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgb(8_30_58/0.55)_100%)]" />
+            </div>
 
             <!-- Kaplouf's penguin, Noël's string of lights -->
             <div aria-hidden="true" class="pointer-events-none absolute inset-0">
@@ -145,13 +160,13 @@ onMounted(() => {
                 v-if="p.id === 'kaplouf'"
                 src="/projects/kaplouf-soldier.webp"
                 srcset="/projects/kaplouf-soldier-800.webp 800w, /projects/kaplouf-soldier.webp 1200w"
-                sizes="(min-width: 1024px) 24rem, 16rem"
+                sizes="(min-width: 640px) 16rem, 13rem"
                 alt=""
                 width="1200"
                 height="1200"
                 loading="lazy"
                 decoding="async"
-                class="kp-float absolute bottom-6 left-1/2 w-[60%] max-w-[16rem] -translate-x-1/2 drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)] lg:-bottom-[3%] lg:left-auto lg:right-[4%] lg:w-[46%] lg:max-w-[24rem] lg:translate-x-0"
+                class="kp-float absolute -bottom-[2%] right-[2%] w-[42%] max-w-[13rem] drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)] sm:max-w-[16rem] lg:w-[34%] lg:max-w-[15rem]"
               >
               <template v-if="p.id === 'kaplouf'">
                 <span
