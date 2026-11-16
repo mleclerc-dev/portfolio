@@ -71,9 +71,13 @@ onMounted(() => {
   <section id="projets" aria-labelledby="projects-heading" class="relative scroll-mt-14">
     <div class="relative mx-auto max-w-[90rem] px-4 pb-20 pt-8 sm:px-8 sm:pb-28">
       <div class="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-3 sm:mb-12">
-        <h2 id="projects-heading" data-face="host" class="stretch-in whitespace-nowrap text-[clamp(2.75rem,8vw,7rem)] uppercase leading-[0.9]">
-          {{ t('index.heading') }}
-        </h2>
+        <div>
+          <p class="eyebrow">{{ t('index.kicker') }}</p>
+          <h2 id="projects-heading" data-face="host" class="stretch-in mt-3 whitespace-nowrap text-[clamp(2.75rem,8vw,7rem)] uppercase leading-[0.9]">
+            {{ t('index.heading') }}
+          </h2>
+        </div>
+        <p class="max-w-[24rem] pb-2 text-[1.25rem] leading-snug text-muted">{{ t('index.intro') }}</p>
       </div>
 
       <ul ref="list" class="grid gap-4 sm:gap-5 lg:auto-rows-[minmax(15rem,auto)] lg:grid-cols-[repeat(12,minmax(0,1fr))]">

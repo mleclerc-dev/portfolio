@@ -35,10 +35,13 @@ const cicd = Math.round(today - 2018.1)
   >
     <div class="mx-auto max-w-[90rem] px-4 pb-12 pt-20 sm:px-8 sm:pb-16 sm:pt-28">
     <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
-        <h2 id="career-heading" data-face="host" class="stretch-in whitespace-nowrap text-[clamp(2.75rem,8vw,7rem)] uppercase leading-[0.9]">
+      <div>
+        <p class="eyebrow">{{ t('career.kicker') }}</p>
+        <h2 id="career-heading" data-face="host" class="stretch-in mt-3 whitespace-nowrap text-[clamp(2.75rem,8vw,7rem)] uppercase leading-[0.9]">
           {{ t('career.heading') }}
         </h2>
-      <p class="max-w-[24rem] text-[1.25rem] leading-snug text-muted">
+      </div>
+      <p class="max-w-[24rem] pb-2 text-[1.25rem] leading-snug text-muted">
         {{ t('career.summary', { years, cicd }) }}
       </p>
     </div>

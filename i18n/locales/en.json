@@ -38,6 +38,8 @@
     "trick": "360!"
   },
   "index": {
+    "kicker": "Selected work",
+    "intro": "One client project in production and three personal projects, from design to launch.",
     "heading": "Projects",
     "see": "See"
   },
@@ -62,6 +64,7 @@
     "home": "Home"
   },
   "career": {
+    "kicker": "Since 2011",
     "heading": "Career",
     "summary": "{years} years in the trade, nearly {cicd} of them at CICD.",
     "today": "today",
@@ -256,6 +259,7 @@
     "scope": "What’s inside"
   },
   "cv": {
+    "where": "{town}, near Cherbourg",
     "beyond": "Off the clock",
     "updated": "Updated {date}",
     "title": "CV · Maxime Leclerc",

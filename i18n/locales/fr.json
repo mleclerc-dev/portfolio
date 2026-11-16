@@ -38,6 +38,8 @@
     "trick": "360 !"
   },
   "index": {
+    "kicker": "Réalisations",
+    "intro": "Un projet client en production et trois projets perso, du design à la mise en ligne.",
     "heading": "Projets",
     "see": "Voir"
   },
@@ -62,6 +64,7 @@
     "home": "Accueil"
   },
   "career": {
+    "kicker": "Depuis 2011",
     "heading": "Parcours",
     "summary": "{years} ans de métier, dont près de {cicd} chez CICD.",
     "today": "aujourd’hui",
@@ -256,6 +259,7 @@
     "scope": "Ce qu’il contient"
   },
   "cv": {
+    "where": "{town}, près de Cherbourg",
     "beyond": "Hors du code",
     "updated": "Mis à jour en {date}",
     "title": "CV · Maxime Leclerc",
