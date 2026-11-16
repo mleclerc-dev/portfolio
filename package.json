@@ -8,7 +8,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "og": "node scripts/snapshots.mjs og",
+    "cv": "node scripts/snapshots.mjs cv",
+    "snapshots": "node scripts/snapshots.mjs"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
