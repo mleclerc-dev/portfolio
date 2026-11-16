@@ -24,6 +24,7 @@ if (!note.value || (note.value.draft && !showDrafts)) {
 const project = computed(() => projects.find((p) => p.slug === note.value?.project))
 const site = useRuntimeConfig().public.siteUrl.replace(/\/$/, '')
 
+useBlogFeed()
 useSeoMeta({
   title: () => `${note.value?.title} · Maxime Leclerc`,
   description: () => note.value?.description,

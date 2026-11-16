@@ -14,6 +14,7 @@ const { data: posts } = await useAsyncData(
 )
 const visible = computed(() => (posts.value ?? []).filter((n) => showDrafts || !n.draft))
 
+useBlogFeed()
 useSeoMeta({
   title: () => t('blog.meta_title'),
   description: () => t('blog.meta_description'),
