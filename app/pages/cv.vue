@@ -40,7 +40,7 @@ const updated = computed(() => new Intl.DateTimeFormat(lang.value === 'fr' ? 'fr
           <li><a :href="`mailto:${person.email}`">{{ person.email }}</a></li>
           <li><a :href="site">{{ host(site) }}</a></li>
           <li v-for="l in links" :key="l.label"><a :href="l.href">{{ host(l.href) }}</a></li>
-          <li class="text-[#4a4a4f]">{{ person.location }}, Cotentin</li>
+          <li class="text-[#4a4a4f]">{{ t('cv.where', { town: person.location }) }}</li>
         </ul>
         <p class="mt-[3mm] rounded-[6px] bg-[#f2d04b] px-[3mm] py-[2mm] text-[8pt] font-semibold leading-snug text-[#0b0b0c]">{{ t('cv.available') }}</p>
       </section>
