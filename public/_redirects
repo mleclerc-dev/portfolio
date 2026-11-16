@@ -1,0 +1,3 @@
+# English addresses were translated (Cloudflare reads this file): keep the old ones working
+/en/projets/*        /en/projects/:splat   301
+/en/mentions-legales /en/legal-notice      301

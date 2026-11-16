@@ -129,7 +129,7 @@ async function run(raw: string) {
       out(t('term.opening', { name: p.name[lang.value] }), 'ok')
       setTimeout(async () => {
         close()
-        await router.push(localePath(`/projets/${p.slug}`))
+        await router.push(localePath({ name: 'projets-slug', params: { slug: p.slug } }))
       }, 350)
       break
     }
@@ -387,7 +387,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onGlobalKey))
               <NuxtLink
                 v-for="(p, j) in projects"
                 :key="p.id"
-                :to="localePath(`/projets/${p.slug}`)"
+                :to="localePath({ name: 'projets-slug', params: { slug: p.slug } })"
                 class="grid grid-cols-[2rem_1fr_auto] items-center gap-3 rounded px-1 py-0.5 hover:bg-white/[0.06] sm:grid-cols-[2rem_11rem_1fr_9rem]"
                 @click="close()"
               >

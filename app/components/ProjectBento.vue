@@ -117,7 +117,7 @@ onMounted(() => {
               }"
               :style="{ viewTransitionName: `project-${p.id}` }"
             >
-              <NuxtLink :to="localePath(`/projets/${p.slug}`)" class="tile-link after:absolute after:inset-0 after:z-10 after:content-['']">{{ p.name[lang] }}</NuxtLink>
+              <NuxtLink :to="localePath({ name: 'projets-slug', params: { slug: p.slug } })" class="tile-link after:absolute after:inset-0 after:z-10 after:content-['']">{{ p.name[lang] }}</NuxtLink>
             </h3>
             <p class="mt-3 max-w-[30ch] text-[1.1rem] font-medium leading-snug">{{ p.tagline[lang] }}</p>
             </div>

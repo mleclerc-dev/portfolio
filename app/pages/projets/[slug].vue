@@ -61,7 +61,7 @@ useHead(() => ({
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Maxime Leclerc', item: `${site}${localePath('/')}`.replace(/\/$/, '') || site },
-          { '@type': 'ListItem', position: 2, name: p.value.name[lang.value], item: `${site}${localePath(`/projets/${p.value.slug}`)}` },
+          { '@type': 'ListItem', position: 2, name: p.value.name[lang.value], item: `${site}${localePath({ name: 'projets-slug', params: { slug: p.value.slug } })}` },
         ],
       }),
     },
@@ -250,12 +250,12 @@ const dot = { live: 'bg-[#4ade80]', used: 'bg-accent', wip: 'bg-[#f0c04a]' }
     <!-- Next -->
     <nav :aria-label="t('page.more')" class="mx-auto mt-24 max-w-[90rem] px-4 pb-32 sm:mt-32 sm:px-8 sm:pb-40">
       <div class="flex items-center justify-between border-b border-line pb-3 font-mono text-[0.75rem] text-muted">
-        <NuxtLink :to="localePath(`/projets/${prev.slug}`)" class="flex min-h-11 items-center transition-colors hover:text-ink">
+        <NuxtLink :to="localePath({ name: 'projets-slug', params: { slug: prev.slug } })" class="flex min-h-11 items-center transition-colors hover:text-ink">
           <span class="sr-only">{{ t('page.prev') }} :</span>← {{ prev.name[lang] }}
         </NuxtLink>
         <span>{{ t('page.next') }} →</span>
       </div>
-      <NuxtLink :to="localePath(`/projets/${next.slug}`)" :data-swatch="next.id" class="group mt-8 flex items-end justify-between gap-6">
+      <NuxtLink :to="localePath({ name: 'projets-slug', params: { slug: next.slug } })" :data-swatch="next.id" class="group mt-8 flex items-end justify-between gap-6">
         <span
           :data-face="next.id"
           class="leading-[0.95] transition-transform duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover:translate-x-3"

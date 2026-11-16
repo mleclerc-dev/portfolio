@@ -31,7 +31,7 @@ const live = computed(() => (time.value ? t('footer.live', { time: time.value })
       </p>
       <p class="flex flex-wrap items-center gap-x-5 [&>*]:py-2.5">
         <span v-if="live" class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-[#4ade80] blink" />{{ live }}</span>
-        <NuxtLink :to="localePath('/mentions-legales')" class="link-underline">{{ t('footer.legal') }}</NuxtLink>
+        <NuxtLink :to="localePath('mentions-legales')" class="link-underline">{{ t('footer.legal') }}</NuxtLink>
         <MotionToggle class="link-underline text-muted" />
         <a href="#top" class="link-underline shrink-0">{{ t('footer.top') }} ↑</a>
       </p>

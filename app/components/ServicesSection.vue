@@ -27,7 +27,7 @@ const proofProject = ['move-taxi', 'move-taxi', 'mariage']
         <h3 class="font-display text-[1.6rem] font-bold leading-[1.1] tracking-[-0.01em] [font-stretch:88%]">{{ s.title[lang] }}</h3>
         <p class="mt-4 flex-1 text-[1.1rem] leading-[1.5] text-ink/95">{{ s.text[lang] }}</p>
         <NuxtLink
-          :to="localePath(`/projets/${proofProject[i]}`)"
+          :to="localePath({ name: 'projets-slug', params: { slug: proofProject[i] } })"
           class="mt-8 flex min-h-11 items-center gap-2 font-mono text-[0.75rem] text-muted transition-colors hover:text-ink group-hover:text-ink"
         >
           <span aria-hidden="true" class="text-accent transition-transform duration-200 group-hover:translate-x-0.5">→</span>

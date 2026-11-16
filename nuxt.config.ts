@@ -60,6 +60,12 @@ export default defineNuxtConfig({
     defaultLocale: 'fr',
     strategy: 'prefix_except_default',
     baseUrl: siteUrl,
+    // English addresses in English; the French ones are the file names
+    customRoutes: 'config',
+    pages: {
+      'projets/[slug]': { fr: '/projets/[slug]', en: '/projects/[slug]' },
+      'mentions-legales': { fr: '/mentions-legales', en: '/legal-notice' },
+    },
     locales: [
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
       { code: 'en', language: 'en-GB', name: 'English', file: 'en.json' },
@@ -74,7 +80,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/mentions-legales', '/blog', '/en/blog', '/blog/rss.xml', '/en/blog/rss.xml', '/sitemap.xml', '/robots.txt',
+        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/legal-notice', '/blog', '/en/blog', '/blog/rss.xml', '/en/blog/rss.xml', '/sitemap.xml', '/robots.txt',
         // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
         ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
       ],
