@@ -80,11 +80,14 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/legal-notice', '/blog', '/en/blog', '/blog/rss.xml', '/en/blog/rss.xml', '/sitemap.xml', '/robots.txt',
+        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/legal-notice', '/sitemap.xml', '/robots.txt',
+        // The blog is paused (its posts are drafts). To bring it back, publish a post, drop `ignore` below and add:
+        // '/blog', '/en/blog', '/blog/rss.xml', '/en/blog/rss.xml',
         // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
         ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
       ],
       crawlLinks: true,
+      ignore: ['/blog', '/en/blog'],
     },
   },
 })

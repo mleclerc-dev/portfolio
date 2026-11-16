@@ -16,14 +16,14 @@ onMounted(() => watch(() => route.hash, (h) => (hash.value = h), { immediate: tr
 const otherPath = computed(() => (other.value ? switchLocalePath(other.value.code).split('#')[0] + hash.value : ''))
 const home = computed(() => localePath('/'))
 
-// "Blog" joins the menu once a post is published (always in `nuxt dev`, to preview drafts)
+// "Blog" joins the menu once a post is published (drafts stay reachable by URL in `nuxt dev`)
 const blogCollection = useBlogCollection()
 const { data: publishedPosts } = await useAsyncData(
   () => `blog-count-${blogCollection.value}`,
   () => queryCollection(blogCollection.value).where('draft', '=', false).count(),
   { watch: [blogCollection] },
 )
-const hasBlog = computed(() => showDrafts || (publishedPosts.value ?? 0) > 0)
+const hasBlog = computed(() => (publishedPosts.value ?? 0) > 0)
 
 const links = computed(() => [
   { id: 'projets', to: `${home.value}#projets`, label: t('nav.work') },

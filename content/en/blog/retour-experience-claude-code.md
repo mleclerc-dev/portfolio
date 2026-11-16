@@ -5,7 +5,7 @@ date: "2026-11-16"
 kind: story
 cover: /blog/portfolio-en.webp
 coverAlt: "The portfolio home page: “Web apps made for you.” on a dark grid, and the live sea off Urville at the bottom of the screen."
-draft: false
+draft: true
 ---
 
 This portfolio already existed. It was tidy, but it didn’t say clearly enough what I offer, or to whom. I spent two days reworking it with Claude Code, Anthropic’s coding assistant, right inside my editor. Here is how it went, without embellishment.

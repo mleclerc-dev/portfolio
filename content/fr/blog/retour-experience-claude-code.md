@@ -5,7 +5,7 @@ date: "2026-11-16"
 kind: story
 cover: /blog/portfolio-fr.webp
 coverAlt: "L’accueil du portfolio : « Des applis web faites pour vous. » sur une grille sombre, et la mer d’Urville en direct en bas de l’écran."
-draft: false
+draft: true
 ---
 
 Ce portfolio existait déjà. Il était propre, mais il ne disait pas assez clairement ce que je propose, ni à qui. J’ai passé deux jours à le retravailler avec Claude Code, l’assistant de programmation d’Anthropic, directement dans mon éditeur. Voici comment ça s’est passé, sans enjoliver.
