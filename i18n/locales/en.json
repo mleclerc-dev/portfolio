@@ -15,13 +15,11 @@
     "skip": "Skip to content",
     "home": "Maxime Leclerc, home",
     "services": "Services",
-    "projects_bar": "The projects",
     "menu": "Menu",
     "close": "Close",
     "blog": "Blog"
   },
   "hero": {
-    "kicker": "Maxime Leclerc · Freelance web developer · Urville-Nacqueville, France",
     "someone": "you.",
     "lede": "An app idea, a tool to replace, a website to rebuild? I take care of everything: the design, the code and the launch.",
     "title": "Web apps made for you.",
@@ -29,7 +27,6 @@
     "line_2": "made for",
     "cta_work": "See the work",
     "cta_contact": "Get in touch",
-    "spec": "Vue · Nuxt · Laravel · since 2015",
     "available": "Available for short remote missions",
     "role": "freelance web developer",
     "where": "Urville-Nacqueville, near Cherbourg, France · Vue, Nuxt, Laravel · since 2015",
@@ -41,13 +38,11 @@
   "index": {
     "kicker": "Selected work",
     "intro": "One client project in production and three personal projects, from design to launch.",
-    "heading": "Projects",
-    "see": "See"
+    "heading": "Projects"
   },
   "project": {
     "for": "For",
     "stack": "Built with",
-    "status": "Status",
     "visit": "Visit the site"
   },
   "kaplouf": {
@@ -74,7 +69,6 @@
     "legend_school": "Education"
   },
   "about": {
-    "quote": "A good app is one you use without thinking about it.",
     "heading": "About",
     "lead": "Design and code, with nothing lost in between.",
     "p1": "I’ve been building web applications end to end since 2015. Trained in computer science (a DUT in Caen), then as a webmaster (a professional degree), I think about the interface and the code together, for tools that are pleasant to use and easy to evolve.",
@@ -100,7 +94,6 @@
     "card_from": "from the {dir}",
     "card_offline": "Weather unavailable right now.",
     "card_coords": "49°40′ N · 1°44′ W",
-    "card_rhythm": "one wave every {p} s",
     "skills_title": "The toolbox",
     "skills_text": "What I use day to day. On an existing project, I work with the stack already in place.",
     "skills_core": "My core stack"
@@ -177,7 +170,6 @@
     "not_found": "No project matches “{arg}”. Try ls.",
     "open_usage": "Usage: open [project], for example open kaplouf or open 2",
     "opening": "Opening {name}…",
-    "whoami": "full-stack web developer in Urville-Nacqueville, France, since 2015. Vue, Nuxt, Laravel.",
     "contact_hint": "→ email copies the address to the clipboard",
     "copied": "{email} copied to the clipboard.",
     "lang_usage": "Usage: lang fr or lang en",
@@ -250,9 +242,6 @@
     "weather_source": "Live data: Open-Meteo.",
     "weather_offline": "No network for the weather. The Cotentin is usually westerly winds and changing skies."
   },
-  "stack": {
-    "see": "See the project"
-  },
   "bento": {
     "client": "Client project",
     "personal": "Personal project",
@@ -299,7 +288,11 @@
     "mariage_no": "Not coming",
     "mariage_wait": "Waiting",
     "mariage_drinks": "Drinks",
-    "mariage_tables": "Tables and linen"
+    "mariage_tables": "Tables and linen",
+    "mariage_todo": "To do",
+    "mariage_todo_1": "Book the venue",
+    "mariage_todo_2": "Choose the caterer",
+    "mariage_todo_3": "Book the photographer"
   },
   "work": {
     "kicker": "At work",

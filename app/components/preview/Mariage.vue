@@ -49,6 +49,16 @@ const eur = (n: number) =>
       <div class="mt-4 flex justify-between text-[0.68rem] text-white/75"><span>{{ t('preview.mariage_prep') }}</span><span>16 %</span></div>
       <div class="mt-1.5 h-1.5 rounded-full bg-white/15"><div class="pv-grow h-full w-[16%] rounded-full bg-[#3fbf94]" /></div>
 
+      <!-- Next to-dos, as on the app's dashboard: they fill the card when it stretches -->
+      <div class="mt-5 border-t border-white/10 pt-4">
+        <p class="text-[0.68rem] text-white/75">{{ t('preview.mariage_todo') }}</p>
+        <ul class="mt-2 space-y-1.5 text-[0.7rem]">
+          <li class="flex items-center gap-2"><span class="grid size-3.5 place-items-center rounded-[4px] bg-[#3fbf94] text-[0.55rem] font-bold text-[#18181b]">✓</span><span class="text-white/60 line-through decoration-white/30">{{ t('preview.mariage_todo_1') }}</span></li>
+          <li class="flex items-center gap-2"><span class="size-3.5 rounded-[4px] border border-white/30" />{{ t('preview.mariage_todo_2') }}</li>
+          <li class="flex items-center gap-2"><span class="size-3.5 rounded-[4px] border border-white/30" />{{ t('preview.mariage_todo_3') }}</li>
+        </ul>
+      </div>
+
       <div class="mt-auto border-t border-white/10 pt-4">
         <p class="flex items-baseline justify-between text-[0.68rem] text-white/75">
           {{ t('preview.mariage_rsvp') }}

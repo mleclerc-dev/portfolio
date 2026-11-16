@@ -15,13 +15,11 @@
     "skip": "Aller au contenu",
     "home": "Maxime Leclerc, accueil",
     "services": "Services",
-    "projects_bar": "Les projets",
     "menu": "Menu",
     "close": "Fermer",
     "blog": "Blog"
   },
   "hero": {
-    "kicker": "Maxime Leclerc · Développeur web freelance · Urville-Nacqueville",
     "someone": "vous.",
     "lede": "Une idée d’appli, un outil à remplacer, un site à refaire ? Je m’occupe de tout : le design, le code et la mise en ligne.",
     "title": "Des applis web faites pour vous.",
@@ -29,7 +27,6 @@
     "line_2": "faites pour",
     "cta_work": "Voir les projets",
     "cta_contact": "Me contacter",
-    "spec": "Vue · Nuxt · Laravel · depuis 2015",
     "available": "Disponible pour des missions courtes, à distance",
     "role": "développeur web freelance",
     "where": "Urville-Nacqueville, près de Cherbourg · Vue, Nuxt, Laravel · depuis 2015",
@@ -41,13 +38,11 @@
   "index": {
     "kicker": "Réalisations",
     "intro": "Un projet client en production et trois projets perso, du design à la mise en ligne.",
-    "heading": "Projets",
-    "see": "Voir"
+    "heading": "Projets"
   },
   "project": {
     "for": "Pour",
     "stack": "Avec",
-    "status": "Statut",
     "visit": "Voir le site"
   },
   "kaplouf": {
@@ -74,7 +69,6 @@
     "legend_school": "Formation"
   },
   "about": {
-    "quote": "Une appli réussie, c’est celle qu’on utilise sans y penser.",
     "heading": "À propos",
     "lead": "Le design et le code, sans rien perdre entre les deux.",
     "p1": "Je conçois des applications web de bout en bout depuis 2015. Formé à l’informatique (DUT à Caen) puis aux métiers du web (licence pro ATC Webmestre), je pense l’interface et le code ensemble, pour des outils agréables à utiliser et simples à faire évoluer.",
@@ -100,7 +94,6 @@
     "card_from": "secteur {dir}",
     "card_offline": "Météo indisponible pour le moment.",
     "card_coords": "49°40′ N · 1°44′ O",
-    "card_rhythm": "une vague toutes les {p} s",
     "skills_title": "La boîte à outils",
     "skills_text": "Ce que j’utilise au quotidien. Sur un projet existant, je m’adapte à la stack en place.",
     "skills_core": "Mon cœur de stack"
@@ -177,7 +170,6 @@
     "not_found": "Aucun projet ne correspond à « {arg} ». Essayez ls.",
     "open_usage": "Usage : open [projet], par exemple open kaplouf ou open 2",
     "opening": "Ouverture de {name}…",
-    "whoami": "développeur web full-stack à Urville-Nacqueville, depuis 2015. Vue, Nuxt, Laravel.",
     "contact_hint": "→ email copie l’adresse dans le presse-papiers",
     "copied": "{email} copié dans le presse-papiers.",
     "lang_usage": "Usage : lang fr ou lang en",
@@ -250,9 +242,6 @@
     "weather_source": "Données en direct : Open-Meteo.",
     "weather_offline": "Pas de réseau pour la météo. Le Cotentin, c’est souvent vent d’ouest et ciel changeant."
   },
-  "stack": {
-    "see": "Voir le projet"
-  },
   "bento": {
     "client": "Projet client",
     "personal": "Projet perso",
@@ -299,7 +288,11 @@
     "mariage_no": "Ne viennent pas",
     "mariage_wait": "En attente",
     "mariage_drinks": "Boissons",
-    "mariage_tables": "Tables et nappes"
+    "mariage_tables": "Tables et nappes",
+    "mariage_todo": "À faire",
+    "mariage_todo_1": "Réserver la salle",
+    "mariage_todo_2": "Choisir le traiteur",
+    "mariage_todo_3": "Réserver le photographe"
   },
   "work": {
     "kicker": "En entreprise",
