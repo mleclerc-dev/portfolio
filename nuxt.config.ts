@@ -35,7 +35,7 @@ export default defineNuxtConfig({
   },
 
   // The host: Anybody (variable weight and width, driven by the cursor), Instrument Sans for reading, IBM Plex Mono.
-  // Then the display face each project wears in its own scene.
+  // Then the display face each project wears in its own scene, trimmed to the weights it uses.
   fonts: {
     defaults: { weights: [400], styles: ['normal'], subsets: ['latin', 'latin-ext'] },
     families: [
@@ -44,9 +44,10 @@ export default defineNuxtConfig({
       { name: 'IBM Plex Mono', weights: [400, 500] },
       { name: 'Gilda Display', weights: [400] },
       { name: 'Plus Jakarta Sans', weights: ['400 800'] },
-      { name: 'Bricolage Grotesque', weights: ['400 800'] },
-      { name: 'Caveat', weights: ['400 700'] },
-      { name: 'Archivo', weights: ['400 900'], variableAxis: { wdth: [[100, 125]] } },
+      { name: 'Bricolage Grotesque', weights: ['700 800'] },
+      { name: 'Caveat', weights: [600] },
+      // Only Kaplouf's title uses it, at 900 and 125 % wide: one static cut instead of the whole variable font
+      { name: 'Archivo', weights: [900], variableAxis: { wdth: [125] } },
     ],
   },
 
