@@ -20,3 +20,18 @@ export function useBlogFeed() {
     link: [{ rel: 'alternate', type: 'application/rss+xml', title: t('blog.meta_title'), href: `${localePath('/blog')}/rss.xml`, key: 'rss' }],
   }))
 }
+
+/** Reading time in minutes, counted from a post's body (Nuxt Content's minimark tree) at ~220 words a minute. */
+export function readingMinutes(body: unknown) {
+  let words = 0
+  const walk = (node: unknown): void => {
+    if (typeof node === 'string') {
+      words += node.split(/\s+/).filter(Boolean).length
+      return
+    }
+    // an element is [tag, props, ...children]
+    if (Array.isArray(node)) for (const child of node.slice(2)) walk(child)
+  }
+  for (const node of (body as { value?: unknown[] } | undefined)?.value ?? []) walk(node)
+  return Math.max(1, Math.round(words / 220))
+}

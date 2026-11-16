@@ -5,7 +5,6 @@ date: "2026-11-16"
 kind: story
 cover: /blog/portfolio-fr.webp
 coverAlt: "L’accueil du portfolio : « Des applis web faites pour vous. » sur une grille sombre, et la mer d’Urville en direct en bas de l’écran."
-minutes: 6
 draft: false
 ---
 

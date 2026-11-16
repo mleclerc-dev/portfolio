@@ -50,7 +50,7 @@ useSeoMeta({
             <p class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted">
               <span class="text-accent">{{ t(`blog.${n.kind}`) }}</span>
               <span>{{ formatPostDate(n.date, locale) }}</span>
-              <span v-if="n.minutes">{{ t('blog.minutes', { n: n.minutes }) }}</span>
+              <span>{{ t('blog.minutes', { n: n.minutes ?? readingMinutes(n.body) }) }}</span>
               <span v-if="n.draft" class="rounded-full bg-[var(--yellow)] px-2 py-0.5 normal-case tracking-normal text-[var(--on-yellow)]">{{ t('blog.draft') }}</span>
             </p>
             <h2 class="mt-4 font-display text-[clamp(1.5rem,2.4vw,2rem)] font-bold leading-[1.1] tracking-[-0.01em] [font-stretch:88%]">

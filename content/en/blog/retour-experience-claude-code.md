@@ -5,7 +5,6 @@ date: "2026-11-16"
 kind: story
 cover: /blog/portfolio-en.webp
 coverAlt: "The portfolio home page: “Web apps made for you.” on a dark grid, and the live sea off Urville at the bottom of the screen."
-minutes: 6
 draft: false
 ---
 

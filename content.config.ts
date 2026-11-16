@@ -17,7 +17,7 @@ const schema = z.object({
   /** Image at the top and on the list, from /public */
   cover: z.string().optional(),
   coverAlt: z.string().optional(),
-  /** Estimated reading time, in minutes */
+  /** Reading time in minutes, only to override the one counted from the text */
   minutes: z.number().optional(),
   draft: z.boolean().default(false),
 })
