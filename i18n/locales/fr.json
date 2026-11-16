@@ -106,9 +106,17 @@
     "kicker": "Contact",
     "text": "Un site, un outil métier, une appli à faire évoluer : écrivez-moi quelques lignes sur votre besoin, je vous réponds avec des questions concrètes et une première idée.",
     "availability": "Missions freelance courtes, les soirs et les week-ends, à distance, en parallèle de mon poste chez CICD.",
-    "f_title": "Ou en quelques lignes",
+    "f_title": "Ou en quelques clics",
     "f_name": "Votre nom",
     "f_email": "Votre e-mail",
+    "f_kind": "Quel type de projet ?",
+    "f_kind_1": "Site vitrine",
+    "f_kind_2": "Appli ou outil sur mesure",
+    "f_kind_3": "Réservation en ligne",
+    "f_kind_4": "Je ne sais pas encore",
+    "f_start": "Point de départ ?",
+    "f_start_1": "Tout est à faire",
+    "f_start_2": "Il existe déjà un site ou une appli",
     "f_when": "Pour quand ?",
     "f_when_1": "Pas d’urgence",
     "f_when_2": "Dans le mois",
@@ -341,5 +349,6 @@
     "cta": "Un projet qui ressemble à celui-ci ? Parlons-en.",
     "story": "Retour d’expérience",
     "toc": "Sommaire"
-  }
+  },
+  "next_slot": "Prochain créneau : {when}"
 }

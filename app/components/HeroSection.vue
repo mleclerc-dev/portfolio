@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const nextSlot = useNextSlot()
 
 // The live sea under the title
 const now = useUrville()
@@ -28,7 +29,7 @@ const seaLabel = computed(() => {
           <span class="absolute inset-0 animate-ping rounded-full bg-[#4ade80] motion-reduce:hidden" />
           <span class="blink relative size-2 rounded-full bg-[#4ade80]" />
         </span>
-        {{ t('hero.available') }}
+        {{ t('hero.available') }}<span v-if="nextSlot" class="hidden md:inline"> · {{ nextSlot }}</span>
       </a>
     </div>
 

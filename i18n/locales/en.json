@@ -106,9 +106,17 @@
     "kicker": "Contact",
     "text": "A website, a business tool, an app that needs to grow: send me a few lines about what you need, and I’ll reply with concrete questions and a first idea.",
     "availability": "Short freelance missions, evenings and weekends, remote, alongside my job at CICD.",
-    "f_title": "Or in a few lines",
+    "f_title": "Or in a few clicks",
     "f_name": "Your name",
     "f_email": "Your email",
+    "f_kind": "What kind of project?",
+    "f_kind_1": "Showcase website",
+    "f_kind_2": "Custom app or tool",
+    "f_kind_3": "Online booking",
+    "f_kind_4": "Not sure yet",
+    "f_start": "Starting point?",
+    "f_start_1": "Starting from scratch",
+    "f_start_2": "There’s already a site or app",
     "f_when": "When?",
     "f_when_1": "No rush",
     "f_when_2": "Within the month",
@@ -341,5 +349,6 @@
     "cta": "A project like this one? Let’s talk.",
     "story": "Experience report",
     "toc": "Contents"
-  }
+  },
+  "next_slot": "Next opening: {when}"
 }

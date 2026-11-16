@@ -10,6 +10,7 @@ import { career, coreSkills, person, projects, skills, type Locale } from '~/dat
 definePageMeta({ layout: false })
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as Locale)
+const nextSlot = useNextSlot()
 
 useHead({ htmlAttrs: { class: 'cv-page' }, meta: [{ name: 'robots', content: 'noindex' }] })
 useSeoMeta({ title: () => t('cv.title') })
@@ -42,7 +43,7 @@ const updated = computed(() => new Intl.DateTimeFormat(lang.value === 'fr' ? 'fr
           <li v-for="l in links" :key="l.label"><a :href="l.href">{{ host(l.href) }}</a></li>
           <li class="text-[#4a4a4f]">{{ t('cv.where', { town: person.location }) }}</li>
         </ul>
-        <p class="mt-[3mm] rounded-[6px] bg-[#f2d04b] px-[3mm] py-[2mm] text-[8pt] font-semibold leading-snug text-[#0b0b0c]">{{ t('cv.available') }}</p>
+        <p class="mt-[3mm] rounded-[6px] bg-[#f2d04b] px-[3mm] py-[2mm] text-[8pt] font-semibold leading-snug text-[#0b0b0c]">{{ t('cv.available') }}<span v-if="nextSlot" class="mt-[0.6mm] block font-normal">{{ nextSlot }}</span></p>
       </section>
 
       <section>

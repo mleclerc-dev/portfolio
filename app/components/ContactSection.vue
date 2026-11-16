@@ -3,18 +3,24 @@ import { person, type Locale } from '~/data/content'
 
 const { t, locale } = useI18n()
 const lang = computed(() => locale.value as Locale)
+const nextSlot = useNextSlot()
 const links = person.links.filter((l) => l.href)
 const copied = ref(false)
 
 // A short form: it writes the email for the visitor (no server: their mail app sends it).
-const form = reactive({ name: '', email: '', when: '', message: '' })
+// The chip questions sort the request before the first reply: they land at the top of the email.
+const form = reactive({ name: '', email: '', kind: '', start: '', when: '', message: '' })
 const sent = ref(false)
 let back: ReturnType<typeof setTimeout> | undefined
 function send() {
-  const lines = [form.message.trim(), '', '—']
+  const lines: string[] = []
+  if (form.kind) lines.push(`${t('contact.f_kind')} ${form.kind}`)
+  if (form.start) lines.push(`${t('contact.f_start')} ${form.start}`)
+  if (form.when) lines.push(`${t('contact.f_when')} ${form.when}`)
+  if (lines.length) lines.push('')
+  lines.push(form.message.trim(), '', '—')
   if (form.name.trim()) lines.push(`${t('contact.f_name')} : ${form.name.trim()}`)
   lines.push(`${t('contact.f_email')} : ${form.email.trim()}`)
-  if (form.when) lines.push(`${t('contact.f_when')} ${form.when}`)
   const subject = `${t('contact.f_subject')}${form.name.trim() ? ` · ${form.name.trim()}` : ''}`
   const href = `mailto:${person.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`
   sent.value = true
@@ -23,7 +29,11 @@ function send() {
   window.location.href = href
 }
 onBeforeUnmount(() => clearTimeout(back))
-const whenOptions = computed(() => [t('contact.f_when_1'), t('contact.f_when_2'), t('contact.f_when_3')])
+const questions = computed(() => [
+  { key: 'kind' as const, legend: t('contact.f_kind'), options: [1, 2, 3, 4].map((i) => t(`contact.f_kind_${i}`)) },
+  { key: 'start' as const, legend: t('contact.f_start'), options: [1, 2].map((i) => t(`contact.f_start_${i}`)) },
+  { key: 'when' as const, legend: t('contact.f_when'), options: [1, 2, 3].map((i) => t(`contact.f_when_${i}`)) },
+])
 
 async function copy() {
   try {
@@ -59,12 +69,22 @@ async function copy() {
           <p class="mt-4 flex items-start gap-2 font-mono text-[0.78rem] leading-relaxed text-ink">
             <span class="mt-[0.45em] size-2 shrink-0 rounded-full bg-[#4ade80]" />{{ t('contact.availability') }}
           </p>
+          <p v-if="nextSlot" class="mt-2 pl-4 font-mono text-[0.78rem] uppercase tracking-[0.08em] text-[var(--yellow)]">{{ nextSlot }}</p>
         </div>
 
         <!-- The form: it writes the email, the visitor's mail app sends it -->
         <form class="panel" @submit.prevent="send">
           <div class="grid gap-4 p-6 sm:p-7">
             <p class="eyebrow">{{ t('contact.f_title') }}</p>
+            <fieldset v-for="q in questions" :key="q.key" class="grid gap-1.5">
+              <legend class="field-label mb-1.5">{{ q.legend }}</legend>
+              <div class="flex flex-wrap gap-2">
+                <label v-for="o in q.options" :key="o" class="when-chip">
+                  <input v-model="form[q.key]" type="radio" :name="q.key" :value="o" class="sr-only">
+                  <span>{{ o }}</span>
+                </label>
+              </div>
+            </fieldset>
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="grid gap-1.5">
                 <span class="field-label">{{ t('contact.f_name') }}</span>
@@ -75,15 +95,6 @@ async function copy() {
                 <input v-model="form.email" class="field" type="email" autocomplete="email" required>
               </label>
             </div>
-            <fieldset class="grid gap-1.5">
-              <legend class="field-label mb-1.5">{{ t('contact.f_when') }}</legend>
-              <div class="flex flex-wrap gap-2">
-                <label v-for="o in whenOptions" :key="o" class="when-chip">
-                  <input v-model="form.when" type="radio" name="when" :value="o" class="sr-only">
-                  <span>{{ o }}</span>
-                </label>
-              </div>
-            </fieldset>
             <label class="grid gap-1.5">
               <span class="field-label">{{ t('contact.f_message') }} <span class="text-[var(--yellow)]" :title="t('contact.f_required')">*</span></span>
               <textarea v-model="form.message" class="field min-h-28 resize-y" rows="4" required />

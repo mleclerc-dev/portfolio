@@ -7,6 +7,9 @@ export const person = {
   name: 'Maxime Leclerc',
   email: 'mleclerc.dev@gmail.com',
   location: 'Urville-Nacqueville',
+  /** Next free slot as 'YYYY-MM' (e.g. '2027-01'): shown in the hero, the contact section and the CV
+   *  while that month is still ahead. Leave it empty to show nothing. */
+  nextSlot: '',
   /** Portrait in /public (e.g. '/me.jpg'); while empty, the About section shows the mark instead. */
   photo: '/portrait.webp',
   /** The CV, generated from /cv into /public/cv */
