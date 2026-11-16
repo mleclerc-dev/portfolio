@@ -18,7 +18,7 @@
     "projects_bar": "Les projets",
     "menu": "Menu",
     "close": "Fermer",
-    "notes": "Notes"
+    "blog": "Blog"
   },
   "hero": {
     "kicker": "Maxime Leclerc · Développeur web freelance · Urville-Nacqueville",
@@ -331,17 +331,17 @@
     "pause": "Couper les animations",
     "resume": "Relancer les animations"
   },
-  "notes": {
-    "kicker": "Notes",
-    "title": "Coulisses de projets",
-    "intro": "Des projets racontés en détail, et des réponses aux questions qu’on se pose avant de lancer un site ou une appli.",
-    "meta_title": "Notes · études de cas et conseils · Maxime Leclerc",
-    "meta_description": "Études de cas détaillées (Move Taxi Moto, Mariage) et réponses aux questions courantes avant de lancer un site ou une application web.",
+  "blog": {
+    "kicker": "Blog",
+    "title": "Carnet de bord",
+    "intro": "Des projets racontés en détail, leurs coulisses, et des réponses aux questions qu’on se pose avant de lancer un site ou une appli.",
+    "meta_title": "Blog · Carnet de bord · Maxime Leclerc",
+    "meta_description": "Études de cas, coulisses de projets et conseils pour lancer un site ou une application web, par Maxime Leclerc, développeur web freelance près de Cherbourg.",
     "empty": "Les premiers articles arrivent bientôt.",
     "case": "Étude de cas",
     "guide": "Conseils",
     "minutes": "{n} min de lecture",
-    "back": "Toutes les notes",
+    "back": "Tout le blog",
     "draft": "Brouillon, visible seulement en local",
     "read": "Lire",
     "project": "Voir le projet",

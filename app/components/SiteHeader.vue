@@ -16,21 +16,21 @@ onMounted(() => watch(() => route.hash, (h) => (hash.value = h), { immediate: tr
 const otherPath = computed(() => (other.value ? switchLocalePath(other.value.code).split('#')[0] + hash.value : ''))
 const home = computed(() => localePath('/'))
 
-// "Notes" joins the menu once a note is published (always in `nuxt dev`, to preview drafts)
-const notesCollection = useNotesCollection()
-const { data: publishedNotes } = await useAsyncData(
-  () => `notes-count-${notesCollection.value}`,
-  () => queryCollection(notesCollection.value).where('draft', '=', false).count(),
-  { watch: [notesCollection] },
+// "Blog" joins the menu once a post is published (always in `nuxt dev`, to preview drafts)
+const blogCollection = useBlogCollection()
+const { data: publishedPosts } = await useAsyncData(
+  () => `blog-count-${blogCollection.value}`,
+  () => queryCollection(blogCollection.value).where('draft', '=', false).count(),
+  { watch: [blogCollection] },
 )
-const hasNotes = computed(() => showDrafts || (publishedNotes.value ?? 0) > 0)
+const hasBlog = computed(() => showDrafts || (publishedPosts.value ?? 0) > 0)
 
 const links = computed(() => [
   { id: 'projets', to: `${home.value}#projets`, label: t('nav.work') },
   { id: 'services', to: `${home.value}#services`, label: t('nav.services') },
   { id: 'parcours', to: `${home.value}#parcours`, label: t('nav.career') },
   { id: 'a-propos', to: `${home.value}#a-propos`, label: t('nav.about') },
-  ...(hasNotes.value ? [{ id: 'notes', to: localePath('/notes'), label: t('nav.notes') }] : []),
+  ...(hasBlog.value ? [{ id: 'blog', to: localePath('/blog'), label: t('nav.blog') }] : []),
   { id: 'contact', to: `${home.value}#contact`, label: t('nav.contact') },
 ])
 
@@ -40,8 +40,8 @@ const current = computed(() => projects.findIndex((p) => p.slug === route.params
 // The active menu item: on a project page, "Projects"; on the home page, the section
 // crossing the middle of the screen (watched as you scroll); elsewhere, none.
 const inView = ref('')
-const onNotes = computed(() => route.path.replace(/^\/en/, '').startsWith('/notes'))
-const active = computed(() => (current.value >= 0 ? 'projets' : onNotes.value ? 'notes' : inView.value))
+const onBlog = computed(() => route.path.replace(/^\/en/, '').startsWith('/blog'))
+const active = computed(() => (current.value >= 0 ? 'projets' : onBlog.value ? 'blog' : inView.value))
 let spy: IntersectionObserver | undefined
 function watchSections() {
   spy?.disconnect()

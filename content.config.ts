@@ -1,10 +1,10 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
 /*
- * Notes: case studies and answers to the questions clients ask, one collection per language.
- *   content/fr/notes/<slug>.md  →  /notes/<slug>
- *   content/en/notes/<slug>.md  →  /en/notes/<slug>
- * A note with `draft: true` only shows in `nuxt dev`: it is left out of the list, the pages
+ * The blog: case studies and answers to the questions clients ask, one collection per language.
+ *   content/fr/blog/<slug>.md  →  /blog/<slug>
+ *   content/en/blog/<slug>.md  →  /en/blog/<slug>
+ * A post with `draft: true` only shows in `nuxt dev`: it is left out of the list, the pages
  * and the sitemap of the built site until it is switched to `false`.
  */
 const schema = z.object({
@@ -24,7 +24,7 @@ const schema = z.object({
 
 export default defineContentConfig({
   collections: {
-    notes_fr: defineCollection({ type: 'page', source: { include: 'fr/notes/**/*.md', prefix: '/notes' }, schema }),
-    notes_en: defineCollection({ type: 'page', source: { include: 'en/notes/**/*.md', prefix: '/en/notes' }, schema }),
+    blog_fr: defineCollection({ type: 'page', source: { include: 'fr/blog/**/*.md', prefix: '/blog' }, schema }),
+    blog_en: defineCollection({ type: 'page', source: { include: 'en/blog/**/*.md', prefix: '/en/blog' }, schema }),
   },
 })

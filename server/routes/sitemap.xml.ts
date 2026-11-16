@@ -5,9 +5,9 @@ import { queryCollection } from '@nuxt/content/nitro'
 // Prerendered at build time into a static sitemap.xml. No <lastmod>: the build date would be a fake one.
 export default defineEventHandler(async (event) => {
   const site = useRuntimeConfig(event).public.siteUrl.replace(/\/$/, '')
-  // Published notes (drafts stay out), by their French path; the English one shares the slug
-  const notes = await queryCollection(event, 'notes_fr').where('draft', '=', false).select('path').all()
-  const pages = ['/', '/mentions-legales', ...projects.map((p) => `/projets/${p.slug}`), ...(notes.length ? ['/notes', ...notes.map((n) => n.path)] : [])]
+  // Published blog posts (drafts stay out), by their French path; the English one shares the slug
+  const posts = await queryCollection(event, 'blog_fr').where('draft', '=', false).select('path').all()
+  const pages = ['/', '/mentions-legales', ...projects.map((p) => `/projets/${p.slug}`), ...(posts.length ? ['/blog', ...posts.map((n) => n.path)] : [])]
   const url = (lang: 'fr' | 'en', path: string) => `${site}${lang === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path === '/' ? '' : path}` || site
   const entries = pages.flatMap((path) =>
     (['fr', 'en'] as const).map(
