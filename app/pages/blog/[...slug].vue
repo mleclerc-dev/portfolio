@@ -80,7 +80,9 @@ useHead(() => ({
           :src="note.cover"
           :alt="note.coverAlt ?? ''"
           decoding="async"
-          class="mx-auto mb-12 w-full max-w-[60rem] rounded-[14px] border border-line object-cover shadow-[var(--surface-shadow)]"
+          width="1600"
+          height="900"
+          class="mx-auto mb-12 aspect-[16/9] w-full max-w-[60rem] rounded-[14px] border border-line object-cover object-top shadow-[var(--surface-shadow)]"
         >
         <ContentRenderer :value="note" class="post-prose mx-auto max-w-[42rem]" />
       </div>

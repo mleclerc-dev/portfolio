@@ -10,8 +10,8 @@ import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 const schema = z.object({
   /** Publication date, YYYY-MM-DD */
   date: z.string(),
-  /** "case" (a project told in detail) or "guide" (an answer to a client question) */
-  kind: z.enum(['case', 'guide']).default('case'),
+  /** "case" (a project told in detail), "guide" (an answer to a client question) or "story" (an experience report) */
+  kind: z.enum(['case', 'guide', 'story']).default('case'),
   /** The project it tells, by slug, to link both ways */
   project: z.string().optional(),
   /** Image at the top and on the list, from /public */

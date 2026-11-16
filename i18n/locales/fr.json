@@ -345,6 +345,7 @@
     "draft": "Brouillon, visible seulement en local",
     "read": "Lire",
     "project": "Voir le projet",
-    "cta": "Un projet qui ressemble à celui-ci ? Parlons-en."
+    "cta": "Un projet qui ressemble à celui-ci ? Parlons-en.",
+    "story": "Retour d’expérience"
   }
 }

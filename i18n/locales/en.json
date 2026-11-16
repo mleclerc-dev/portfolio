@@ -345,6 +345,7 @@
     "draft": "Draft, only visible locally",
     "read": "Read",
     "project": "See the project",
-    "cta": "A project like this one? Let’s talk."
+    "cta": "A project like this one? Let’s talk.",
+    "story": "Experience report"
   }
 }
