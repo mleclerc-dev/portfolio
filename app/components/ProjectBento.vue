@@ -15,8 +15,8 @@ const dot = { live: 'bg-[#4ade80]', used: 'bg-[var(--yellow)]', wip: 'bg-[var(--
 // Grid placement on wide screens: the client project large, the others around it.
 const area: Record<string, string> = {
   taxi: 'lg:col-span-7 lg:row-span-2',
-  kaplouf: 'lg:col-span-5 lg:row-span-2',
-  mariage: 'lg:col-span-6',
+  mariage: 'lg:col-span-5 lg:row-span-2',
+  kaplouf: 'lg:col-span-6',
   noel: 'lg:col-span-6',
 }
 const previews: Record<string, ReturnType<typeof resolveComponent>> = {
@@ -94,7 +94,7 @@ onMounted(() => {
             :data-scene="p.id"
             class="tile scene group relative flex h-full flex-col overflow-hidden rounded-[18px] p-6 sm:p-8"
             @pointermove="glow"
-            :class="{ 'pt-14 sm:pt-16': p.id === 'noel' || p.id === 'mariage', 'min-h-[32rem] max-lg:pb-[18.5rem] sm:min-h-[36rem]': p.id === 'kaplouf' }"
+            :class="{ 'pt-14 sm:pt-16': p.id === 'noel' || p.id === 'kaplouf', 'min-h-[32rem] max-lg:pb-[18.5rem] sm:min-h-[36rem]': p.id === 'kaplouf' }"
           >
             <!-- Top line: provenance and status -->
             <div class="flex flex-wrap items-center justify-between gap-3 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted">
@@ -151,7 +151,7 @@ onMounted(() => {
                 height="1200"
                 loading="lazy"
                 decoding="async"
-                class="kp-float absolute bottom-6 left-1/2 w-[60%] max-w-[16rem] -translate-x-1/2 drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)] lg:bottom-[8%] lg:w-[72%] lg:max-w-[24rem]"
+                class="kp-float absolute bottom-6 left-1/2 w-[60%] max-w-[16rem] -translate-x-1/2 drop-shadow-[0_30px_40px_rgb(0_0_0/0.5)] lg:-bottom-[3%] lg:left-auto lg:right-[4%] lg:w-[46%] lg:max-w-[24rem] lg:translate-x-0"
               >
               <template v-if="p.id === 'kaplouf'">
                 <span
