@@ -388,9 +388,10 @@ summary {
   }
 }
 
+/* Opacity and transform only: a blur on type this large costs the GPU dearly and delays the first paint. */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(0.35em); filter: blur(8px); }
-  to { opacity: 1; transform: none; filter: none; }
+  from { opacity: 0; transform: translateY(0.35em); }
+  to { opacity: 1; transform: none; }
 }
 
 /* The visitor paused the animations (footer / hero switch): everything holds still. */
