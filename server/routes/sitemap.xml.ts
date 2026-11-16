@@ -1,10 +1,13 @@
 import { projects } from '../../app/data/content'
+import { queryCollection } from '@nuxt/content/nitro'
 
 // Every public page, in both languages, each pointing to its translation (hreflang).
 // Prerendered at build time into a static sitemap.xml. No <lastmod>: the build date would be a fake one.
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const site = useRuntimeConfig(event).public.siteUrl.replace(/\/$/, '')
-  const pages = ['/', '/mentions-legales', ...projects.map((p) => `/projets/${p.slug}`)]
+  // Published notes (drafts stay out), by their French path; the English one shares the slug
+  const notes = await queryCollection(event, 'notes_fr').where('draft', '=', false).select('path').all()
+  const pages = ['/', '/mentions-legales', ...projects.map((p) => `/projets/${p.slug}`), ...(notes.length ? ['/notes', ...notes.map((n) => n.path)] : [])]
   const url = (lang: 'fr' | 'en', path: string) => `${site}${lang === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path === '/' ? '' : path}` || site
   const entries = pages.flatMap((path) =>
     (['fr', 'en'] as const).map(

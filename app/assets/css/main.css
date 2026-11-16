@@ -532,3 +532,114 @@ html.cv-page {
 @keyframes blink {
   50% { opacity: 0.35; }
 }
+
+/* ---------- Notes: long reading on the light sheet ---------- */
+
+.note-prose {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.note-prose > * + * {
+  margin-top: 1.15em;
+}
+.note-prose h2 {
+  margin-top: 2.4em;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  font-stretch: 90%;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.note-prose h3 {
+  margin-top: 1.9em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+/* Headings carry an anchor link: keep them looking like headings */
+.note-prose :is(h2, h3) a {
+  color: inherit;
+  text-decoration: none;
+}
+.note-prose :is(h2, h3) + * {
+  margin-top: 0.7em;
+}
+.note-prose p a,
+.note-prose li a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+}
+.note-prose strong {
+  font-weight: 650;
+}
+.note-prose ul,
+.note-prose ol {
+  padding-left: 1.3em;
+}
+.note-prose ul {
+  list-style: none;
+}
+.note-prose ul > li {
+  position: relative;
+}
+.note-prose ul > li::before {
+  content: '';
+  position: absolute;
+  left: -1.05em;
+  top: 0.72em;
+  width: 0.55em;
+  height: 2px;
+  background: var(--yellow);
+}
+.note-prose ol {
+  list-style: decimal;
+}
+.note-prose ol > li::marker {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--muted);
+}
+.note-prose li + li {
+  margin-top: 0.45em;
+}
+.note-prose blockquote {
+  border-left: 3px solid var(--yellow);
+  padding: 0.2em 0 0.2em 1.1em;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.note-prose code {
+  border-radius: 6px;
+  background: color-mix(in oklab, var(--ink) 7%, transparent);
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+.note-prose pre {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: #0b0b0c;
+  padding: 1.1em 1.25em;
+  color: #f2f2ef;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.note-prose pre code {
+  background: none;
+  padding: 0;
+}
+.note-prose img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.note-prose hr {
+  margin: 2.6em 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}

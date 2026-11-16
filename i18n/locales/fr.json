@@ -17,7 +17,8 @@
     "services": "Services",
     "projects_bar": "Les projets",
     "menu": "Menu",
-    "close": "Fermer"
+    "close": "Fermer",
+    "notes": "Notes"
   },
   "hero": {
     "kicker": "Maxime Leclerc · Développeur web freelance · Urville-Nacqueville",
@@ -329,5 +330,21 @@
   "motion": {
     "pause": "Couper les animations",
     "resume": "Relancer les animations"
+  },
+  "notes": {
+    "kicker": "Notes",
+    "title": "Coulisses de projets",
+    "intro": "Des projets racontés en détail, et des réponses aux questions qu’on se pose avant de lancer un site ou une appli.",
+    "meta_title": "Notes · études de cas et conseils · Maxime Leclerc",
+    "meta_description": "Études de cas détaillées (Move Taxi Moto, Mariage) et réponses aux questions courantes avant de lancer un site ou une application web.",
+    "empty": "Les premiers articles arrivent bientôt.",
+    "case": "Étude de cas",
+    "guide": "Conseils",
+    "minutes": "{n} min de lecture",
+    "back": "Toutes les notes",
+    "draft": "Brouillon, visible seulement en local",
+    "read": "Lire",
+    "project": "Voir le projet",
+    "cta": "Un projet qui ressemble à celui-ci ? Parlons-en."
   }
 }

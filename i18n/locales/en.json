@@ -17,7 +17,8 @@
     "services": "Services",
     "projects_bar": "The projects",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "notes": "Notes"
   },
   "hero": {
     "kicker": "Maxime Leclerc · Freelance web developer · Urville-Nacqueville, France",
@@ -329,5 +330,21 @@
   "motion": {
     "pause": "Pause animations",
     "resume": "Resume animations"
+  },
+  "notes": {
+    "kicker": "Notes",
+    "title": "Behind the projects",
+    "intro": "Projects told in detail, and answers to the questions people ask before starting a website or an app.",
+    "meta_title": "Notes · case studies and advice · Maxime Leclerc",
+    "meta_description": "Detailed case studies (Move Taxi Moto, Mariage) and answers to common questions before starting a website or a web application.",
+    "empty": "The first articles are on their way.",
+    "case": "Case study",
+    "guide": "Advice",
+    "minutes": "{n} min read",
+    "back": "All notes",
+    "draft": "Draft, only visible locally",
+    "read": "Read",
+    "project": "See the project",
+    "cta": "A project like this one? Let’s talk."
   }
 }

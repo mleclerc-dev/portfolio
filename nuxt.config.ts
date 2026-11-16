@@ -11,7 +11,12 @@ export default defineNuxtConfig({
   // Page changes cross-fade, and a project's title flies from the list to its page.
   experimental: { viewTransition: true },
 
-  modules: ['@nuxt/fonts', '@nuxtjs/i18n'],
+  modules: ['@nuxt/fonts', '@nuxtjs/i18n', '@nuxt/content'],
+
+  // Notes (content/<lang>/notes/*.md): Node's own SQLite, no native module to build
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
 
   css: ['~/assets/css/main.css'],
 
@@ -69,7 +74,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/mentions-legales', '/sitemap.xml', '/robots.txt',
+        '/', '/en', '/cv', '/en/cv', '/mentions-legales', '/en/mentions-legales', '/notes', '/en/notes', '/sitemap.xml', '/robots.txt',
         // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
         ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
       ],
