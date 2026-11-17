@@ -48,7 +48,7 @@ export default defineNuxtConfig({
       { name: 'Instrument Sans', weights: ['400 700'], styles: ['normal', 'italic'] },
       { name: 'IBM Plex Mono', weights: [400, 500] },
       { name: 'Gilda Display', weights: [400] },
-      { name: 'Plus Jakarta Sans', weights: ['400 800'] },
+      { name: 'Inter', weights: ['400 800'] },
       { name: 'Bricolage Grotesque', weights: ['700 800'] },
       { name: 'Caveat', weights: [600] },
       // Only Kaplouf's title uses it, at 900 and 125 % wide: one static cut instead of the whole variable font
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         // The blog is paused (its posts are drafts). To bring it back, publish a post, drop `ignore` below and add:
         // '/blog', '/en/blog', '/blog/rss.xml', '/en/blog/rss.xml',
         // the share-card drawings, screenshotted into public/og/ (not linked, noindex)
-        ...['home', 'move-taxi', 'kaplouf', 'mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
+        ...['home', 'move-taxi', 'kaplouf', 'carnet-du-mariage', 'noel-des-copains'].flatMap((id) => [`/og/${id}`, `/en/og/${id}`]),
       ],
       crawlLinks: true,
       ignore: ['/blog', '/en/blog'],

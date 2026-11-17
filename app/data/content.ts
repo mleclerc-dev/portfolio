@@ -58,8 +58,8 @@ export interface Project {
   state: 'live' | 'used' | 'wip'
   /** Year shown on the museum label; left out when unknown */
   year?: string
-  /** Client work or personal project */
-  origin: 'client' | 'personal'
+  /** Client work, a personal project, or a product of my own that's open to the public */
+  origin: 'client' | 'personal' | 'product'
   url?: string
 }
 
@@ -119,69 +119,70 @@ export const projects: Project[] = [
   },
   {
     id: 'mariage',
-    slug: 'mariage',
+    slug: 'carnet-du-mariage',
     year: '2026',
-    origin: 'personal',
+    origin: 'product',
+    url: 'https://carnetdumariage.com',
     role: {
-      fr: 'Projet perso : de l’idée à l’appli installée sur nos deux téléphones, design compris.',
-      en: 'Personal project: from the idea to the app installed on both our phones, design included.',
+      fr: 'Mon propre produit, de bout en bout : l’idée, le design et l’identité, le développement, la mise en ligne et le référencement.',
+      en: 'My own product, end to end: the idea, the design and brand, the development, the launch and the search engine work.',
     },
-    name: { fr: 'Mariage', en: 'Mariage' },
-    for: { fr: 'nous deux', en: 'the two of us' },
+    name: { fr: 'Carnet du mariage', en: 'Carnet du mariage' },
+    for: { fr: 'les couples qui se marient', en: 'couples getting married' },
     tagline: {
-      fr: 'Tout le mariage dans une appli, de la première liste au jour J.',
-      en: 'The whole wedding in one app, from the first guest list to the big day.',
+      fr: 'Tout le mariage dans un seul carnet, de la première liste au dernier merci.',
+      en: 'The whole wedding in one notebook, from the first guest list to the last thank-you.',
     },
     pitch: {
-      fr: 'Une appli pour organiser tout un mariage à deux, sur le même espace : les invités par foyer et leurs réponses, le budget avec ses devis et ses paiements, le plan de table, le planning et le déroulé du jour J, l’hébergement et les navettes, jusqu’aux cadeaux et aux mots de remerciement. On ajoute la tante Monique, et le traiteur, les tables et le vin d’honneur se recalculent.',
-      en: 'An app to plan a whole wedding as a couple, in one shared space: guests by household and their replies, the budget with its quotes and payments, the seating plan, the schedule and the big-day run sheet, lodging and shuttles, all the way to gifts and thank-you notes. Add Aunt Monique, and the catering, the tables and the drinks reception are recalculated.',
+      fr: 'Une appli en ligne pour organiser son mariage à deux. Invités, réponses, plan de table, budget et jour J y sont reliés : quand un foyer répond depuis son lien, la liste, les tables et le budget se mettent à jour d’eux-mêmes. Chaque couple a aussi son site du mariage, et ses invités répondent sans créer de compte.',
+      en: 'An online app for planning a wedding as a couple. Guests, replies, seating, budget and the big day are all linked: when a household replies from its link, the list, the tables and the budget update themselves. Each couple also gets a wedding website, and their guests reply without creating an account.',
     },
     summary: {
-      fr: 'Invités et réponses, budget et devis, plan de table, planning et déroulé du jour J, hébergement et navettes, cadeaux : tout se recalcule ensemble, et on l’organise à deux sur le même espace.',
-      en: 'Guests and replies, budget and quotes, seating, schedule and big-day run sheet, lodging and shuttles, gifts: it all adds up together, and the two of you plan it in one shared space.',
+      fr: 'Une appli en ligne pour organiser son mariage à deux : invités et réponses, plan de table, budget, programme et site du mariage sont reliés. Un foyer répond, tout se met à jour.',
+      en: 'An online app for planning a wedding as a couple: guests and replies, seating, budget, schedule and wedding website are all linked. A household replies, everything updates.',
     },
     scope: [
       { fr: 'Invités & réponses', en: 'Guests & RSVP' },
-      { fr: 'Budget & devis', en: 'Budget & quotes' },
       { fr: 'Plan de table', en: 'Seating plan' },
-      { fr: 'Planning & jour J', en: 'Schedule & big day' },
-      { fr: 'Hébergement & navettes', en: 'Lodging & shuttles' },
-      { fr: 'Cadeaux & mercis', en: 'Gifts & thank-yous' },
+      { fr: 'Budget & simulateur', en: 'Budget & simulator' },
+      { fr: 'Site du mariage', en: 'Wedding website' },
+      { fr: 'Planning & jour J', en: 'Planning & big day' },
+      { fr: 'À deux, et plus', en: 'Shared with others' },
     ],
     features: [
       {
-        fr: 'Invités par foyer : statut, repas ou vin d’honneur, adulte ou enfant, régime, en un clic ; import et export CSV',
-        en: 'Guests by household: status, meal or drinks only, adult or child, diet, in one click; CSV import and export',
+        fr: 'Un lien et un QR code par foyer : les invités disent qui vient, à quel moment, leur menu et leurs allergies, sans compte ; invitations et relances par e-mail au nom du couple',
+        en: 'A link and a QR code per household: guests say who’s coming, to which part, their meal and allergies, with no account; invitations and reminders by email in the couple’s name',
       },
       {
-        fr: 'Faire-part suivis, et réponses par lien secret sur une page aux couleurs du mariage, sans compte pour les invités',
-        en: 'Invitations tracked, and replies through a secret link on a page in the wedding’s colours, no account for guests',
+        fr: 'Plan de table à l’échelle de la salle, en glisser-déposer, avec placement automatique par foyer ; marque-places à imprimer, et « Trouver ma table » par QR code le jour J',
+        en: 'Seating plan drawn to the room’s scale, drag and drop, with automatic placement by household; printable place cards, and “Find my table” by QR code on the day',
       },
       {
-        fr: 'Budget par poste, devis comparés, paiements et échéances, financement, simulateur « Et si… ? »',
-        en: 'Budget by item, quotes side by side, payments and due dates, funding, a “What if…?” simulator',
+        fr: 'Budget au forfait, par personne ou par table, qui suit les invités ; devis, acomptes, financement, et un simulateur « Et si… ? » pour comparer des scénarios',
+        en: 'Budget as flat fees, per guest or per table, following the guest list; quotes, deposits, funding, and a “What if…?” simulator to compare scenarios',
       },
       {
-        fr: 'Plan de table en glisser-déposer avec le décor de la salle, placement automatique par foyer, version imprimable',
-        en: 'Drag-and-drop seating plan with the room’s layout, automatic placement by household, printable version',
+        fr: 'Un programme du civil au brunch, chaque moment avec ses invités, et un site du mariage aux couleurs du couple : programme, hébergements, navettes, cadeaux',
+        en: 'A schedule from the town hall to the brunch, each part with its own guests, and a wedding website in the couple’s colours: schedule, lodging, shuttles, gifts',
       },
       {
-        fr: 'Rétroplanning avec checklist, déroulé du jour J, carnet des prestataires',
-        en: 'Countdown schedule with a checklist, big-day run sheet, vendor book',
+        fr: 'Rétroplanning daté, rendez-vous dans l’agenda, déroulé du jour J, carnet des prestataires, cadeaux et remerciements',
+        en: 'Dated countdown plan, appointments in your calendar, big-day run sheet, vendor book, gifts and thank-you notes',
       },
       {
-        fr: 'Hébergement et navettes des invités, cadeaux reçus et remerciements à envoyer',
-        en: 'Guest lodging and shuttles, gifts received and thank-you notes to send',
+        fr: 'À deux sur le même carnet, avec des accès pour les témoins ou le wedding planner ; un e-mail récapitulatif chaque lundi ; exports PDF pour le traiteur et la famille',
+        en: 'Both partners in one notebook, with access for the witnesses or a wedding planner; a summary email every Monday; PDF exports for the caterer and the family',
       },
       {
-        fr: 'À deux sur le même espace, recherche ⌘K, exports PDF (traiteur, plan de table, déroulé) ; PWA installable, mode sombre',
-        en: 'Both partners in one space, ⌘K search, PDF exports (catering, seating, run sheet); installable PWA, dark mode',
+        fr: 'Côté produit : site public avec pages fonctionnalités et guides pour le référencement, démo en libre accès effacée chaque nuit, appli installable, mode sombre, parcours principaux couverts par des tests',
+        en: 'On the product side: a public site with feature pages and guides for search engines, an open demo wiped every night, an installable app, dark mode, main user flows covered by tests',
       },
     ],
-    stack: ['Laravel', 'Inertia', 'Vue 3', 'Tailwind CSS', 'shadcn-vue', 'PWA'],
+    stack: ['Laravel', 'Inertia', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'shadcn-vue', 'PWA', 'Laravel Cloud'],
     status: { fr: 'En ligne', en: 'Live' },
-    kind: { fr: 'Appli web d’organisation de mariage', en: 'Wedding planning web app' },
-    cover: '/projects/mariage-dashboard.webp',
+    kind: { fr: 'Appli web pour organiser son mariage', en: 'Wedding planning web app' },
+    cover: '/projects/mariage-landing.webp',
     state: 'live',
   },
   {
@@ -370,13 +371,22 @@ export const shots = {
     },
   },
   mariage: {
+    landing: {
+      src: '/projects/mariage-landing.webp',
+      width: 1800,
+      height: 1125,
+      alt: {
+        fr: 'L’accueil de carnetdumariage.com : « Organisez votre mariage dans un seul carnet. », et le carnet de Camille & Alex avec ses 126 invités, leurs foyers et leurs réponses.',
+        en: 'The carnetdumariage.com home page: “Organise your wedding in a single notebook.”, and Camille & Alex’s notebook with its 126 guests, their households and replies.',
+      },
+    },
     dashboard: {
       src: '/projects/mariage-dashboard.webp',
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'Le tableau de bord : le compte à rebours sur sa carte encre, les invités prévus, le coût estimé, les réponses, la répartition du budget et les tâches à faire.',
-        en: 'The dashboard: the countdown on its ink card, expected guests, estimated cost, replies, budget split and tasks to do.',
+        fr: 'Le tableau de bord de la démo : les réponses reçues au fil des semaines, le jour J dans 228 jours, les préparatifs, puis les invités prévus et le coût estimé.',
+        en: 'The demo’s dashboard: replies received over the weeks, the big day in 228 days, the preparations, then expected guests and estimated cost.',
       },
     },
     plan: {
@@ -384,8 +394,8 @@ export const shots = {
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'Le plan de table : les foyers à placer à gauche, une table d’honneur rectangulaire et des tables rondes, avec le placement automatique.',
-        en: 'The seating plan: households to seat on the left, a rectangular top table and round tables, with automatic placement.',
+        fr: 'Le plan de table : la salle de 20 × 12,5 m à l’échelle, la table d’honneur et deux tables rondes remplies par le placement automatique, « Tout le monde est placé ».',
+        en: 'The seating plan: the 20 × 12.5 m room to scale, the top table and two round tables filled by automatic placement, “Everyone is seated”.',
       },
     },
     scenarios: {
@@ -393,8 +403,8 @@ export const shots = {
       width: 1800,
       height: 1125,
       alt: {
-        fr: 'Les scénarios : on fait varier le nombre d’invités et le coût total se recalcule poste par poste.',
-        en: 'Scenarios: change the guest count and the total cost is recalculated line by line.',
+        fr: 'Le simulateur : des curseurs pour les adultes et les enfants au repas ou au vin d’honneur, et le coût total recalculé poste par poste.',
+        en: 'The simulator: sliders for adults and children at the meal or the drinks reception, and the total cost recalculated line by line.',
       },
     },
     rsvp: {
@@ -402,8 +412,17 @@ export const shots = {
       width: 780,
       height: 1688,
       alt: {
-        fr: 'La page qu’ouvre un foyer avec son lien, sur téléphone : l’invitation de Camille & Alex, la date, le lieu, puis « Qui sera présent ? ».',
-        en: 'The page a household opens from its link, on a phone: Camille & Alex’s invitation, date and venue, then “Who will be there?”.',
+        fr: 'La page qu’ouvre un foyer avec son lien, sur téléphone : l’invitation de Camille & Alex, la date, le lieu, puis le programme de la journée.',
+        en: 'The page a household opens from its link, on a phone: Camille & Alex’s invitation, date and venue, then the day’s schedule.',
+      },
+    },
+    site: {
+      src: '/projects/mariage-site.webp',
+      width: 780,
+      height: 1688,
+      alt: {
+        fr: 'Le site du mariage sur téléphone : « Camille & Alex se marient », la date, le domaine, le compte à rebours et la réponse par lien personnel.',
+        en: 'The wedding website on a phone: “Camille & Alex are getting married”, the date, the venue, the countdown and replying through a personal link.',
       },
     },
   },
@@ -571,7 +590,7 @@ export const services: { title: Localized; text: Localized; proof: Localized }[]
       fr: 'Une appli web qui s’installe sur le téléphone et marche hors ligne, ou une vraie appli Android quand il le faut.',
       en: 'A web app that installs on a phone and works offline, or a native Android app when it calls for one.',
     },
-    proof: { fr: 'Comme Mariage, et Kaplouf en cours de développement', en: 'Like Mariage, with Kaplouf in development' },
+    proof: { fr: 'Comme Carnet du mariage, et Kaplouf en cours de développement', en: 'Like Carnet du mariage, with Kaplouf in development' },
   },
 ]
 

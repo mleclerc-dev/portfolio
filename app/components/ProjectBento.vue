@@ -224,7 +224,7 @@ a.tile:focus-visible {
   transition: opacity 0.4s ease;
 }
 .tile[data-scene='mariage']::before {
-  background: radial-gradient(28rem circle at var(--mx, 50%) var(--my, 0%), rgb(19 133 107 / 0.08), transparent 60%);
+  background: radial-gradient(28rem circle at var(--mx, 50%) var(--my, 0%), rgb(201 47 55 / 0.07), transparent 60%);
 }
 @media (hover: hover) {
   .tile:hover::before {

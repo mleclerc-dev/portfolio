@@ -6,7 +6,7 @@ const lang = computed(() => locale.value as Locale)
 const localePath = useLocalePath()
 const pad = (n: number) => String(n).padStart(2, '0')
 // The project each service's proof line points to, in the order of `services`
-const proofProject = ['move-taxi', 'move-taxi', 'mariage']
+const proofProject = ['move-taxi', 'move-taxi', 'carnet-du-mariage']
 </script>
 
 <template>

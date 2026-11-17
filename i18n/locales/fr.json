@@ -49,11 +49,6 @@
     "village": "Le village et Ginette",
     "battle": "Un débarquement"
   },
-  "mariage": {
-    "dashboard": "Tableau de bord",
-    "plan": "Plan de table",
-    "scenarios": "Et si… ?"
-  },
   "noel": {
     "hand": "Chut, c’est un secret…",
     "spin": "un tour de roue",
@@ -253,6 +248,7 @@
   "bento": {
     "client": "Projet client",
     "personal": "Projet perso",
+    "product": "Mon produit",
     "open": "Ouvrir le projet",
     "scope": "Ce qu’il contient"
   },
@@ -275,9 +271,7 @@
     "taxi_title": "Réserver une course",
     "taxi_fare": "Prix forfaitaire",
     "taxi_cta": "Réserver",
-    "mariage_date": "Samedi 3 juillet 2027 · Domaine des Tilleuls",
-    "mariage_days": "jours",
-    "mariage_prep": "Préparatifs",
+    "mariage_date": "3 juillet 2027",
     "noel_for": "Pour",
     "taxi_to": "Destination",
     "taxi_from": "dès",
@@ -291,16 +285,20 @@
     "mariage_catering": "Traiteur",
     "mariage_venue": "Salle",
     "mariage_reception": "Vin d’honneur",
-    "mariage_rsvp": "Réponses reçues",
-    "mariage_yes": "Viennent",
-    "mariage_no": "Ne viennent pas",
+    "mariage_yes": "Confirmé",
+    "mariage_no": "Refusé",
     "mariage_wait": "En attente",
     "mariage_drinks": "Boissons",
     "mariage_tables": "Tables et nappes",
-    "mariage_todo": "À faire",
-    "mariage_todo_1": "Réserver la salle",
-    "mariage_todo_2": "Choisir le traiteur",
-    "mariage_todo_3": "Réserver le photographe"
+    "mariage_synced": "À jour",
+    "mariage_invited": "Invités",
+    "mariage_split": "{yes} confirmés · {wait} en attente",
+    "mariage_h1": "Famille Durand",
+    "mariage_h2": "Bande du lycée",
+    "mariage_h3": "Famille Leroy",
+    "mariage_h4": "Les collègues",
+    "mariage_toast": "Bande du lycée a répondu",
+    "mariage_toast_sub": "3 présents · à l’instant"
   },
   "work": {
     "kicker": "En entreprise",

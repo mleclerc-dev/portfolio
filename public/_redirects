@@ -1,3 +1,10 @@
-# English addresses were translated (Cloudflare reads this file): keep the old ones working
-/en/projets/*        /en/projects/:splat   301
-/en/mentions-legales /en/legal-notice      301
+# Old addresses keep working (Cloudflare reads this file; the first matching line wins)
+# Mariage became Carnet du mariage
+/projets/mariage        /projets/carnet-du-mariage      301
+/projets/mariage/       /projets/carnet-du-mariage      301
+/en/projets/mariage     /en/projects/carnet-du-mariage  301
+/en/projects/mariage    /en/projects/carnet-du-mariage  301
+/en/projects/mariage/   /en/projects/carnet-du-mariage  301
+# English addresses were translated
+/en/projets/*           /en/projects/:splat             301
+/en/mentions-legales    /en/legal-notice                301

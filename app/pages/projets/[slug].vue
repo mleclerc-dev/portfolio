@@ -164,7 +164,7 @@ const dot = { live: 'bg-[#4ade80]', used: 'bg-accent', wip: 'bg-[#f0c04a]' }
 
     <div v-if="previews[p.id]" class="lg:col-span-6">
       <div
-        :class="({ mariage: 'rounded-[20px] bg-[#ecebe8] p-4 sm:p-6', noel: 'min-h-[30rem] rounded-[20px] bg-[#0b3326] p-5 sm:h-[32rem] sm:p-8', taxi: 'h-[26rem] sm:h-[32rem]' } as Record<string, string>)[p.id]"
+        :class="({ mariage: 'rounded-[20px] bg-[#e2e5ea] p-4 sm:p-6', noel: 'min-h-[30rem] rounded-[20px] bg-[#0b3326] p-5 sm:h-[32rem] sm:p-8', taxi: 'h-[26rem] sm:h-[32rem]' } as Record<string, string>)[p.id]"
       >
         <component :is="previews[p.id]" />
       </div>

@@ -69,13 +69,12 @@
   --kaplouf-line: #24507f;
   --kaplouf-accent: #f0c04a;
 
-  /* Mariage: « Encre & émeraude » (canvas, ink, one emerald accent) */
-  --mariage-paper: #f6f6f5;
-  --mariage-ink: #18181b;
-  --mariage-muted: #5f5e66;
-  --mariage-line: #e2e1de;
-  --mariage-accent: #13856b;
-  --mariage-soft: #e8f3ef;
+  /* Carnet du mariage: the product's own colours (cool paper, ink, wedding red) */
+  --mariage-paper: #eef0f3;
+  --mariage-ink: #1a1b25;
+  --mariage-muted: #5d6474;
+  --mariage-line: #dcdfe5;
+  --mariage-accent: #c92f37;
 
   /* Le Noël des copains: pine, snow, gold, holly, candy */
   --noel-paper: #0f3d2e;
@@ -196,7 +195,7 @@ html[data-page-scene="noel"] {
 }
 
 [data-face="mariage"] {
-  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.045em;
 }

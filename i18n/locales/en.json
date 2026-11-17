@@ -49,11 +49,6 @@
     "village": "The village and Ginette",
     "battle": "A landing"
   },
-  "mariage": {
-    "dashboard": "Dashboard",
-    "plan": "Seating plan",
-    "scenarios": "What if…?"
-  },
   "noel": {
     "hand": "Shh, it’s a secret…",
     "spin": "one spin later",
@@ -253,6 +248,7 @@
   "bento": {
     "client": "Client project",
     "personal": "Personal project",
+    "product": "My own product",
     "open": "Open the project",
     "scope": "What’s inside"
   },
@@ -275,9 +271,7 @@
     "taxi_title": "Book a ride",
     "taxi_fare": "Flat fare",
     "taxi_cta": "Book",
-    "mariage_date": "Saturday 3 July 2027 · Domaine des Tilleuls",
-    "mariage_days": "days",
-    "mariage_prep": "Preparations",
+    "mariage_date": "3 July 2027",
     "noel_for": "For",
     "taxi_to": "Destination",
     "taxi_from": "from",
@@ -291,16 +285,20 @@
     "mariage_catering": "Catering",
     "mariage_venue": "Venue",
     "mariage_reception": "Drinks reception",
-    "mariage_rsvp": "Replies in",
-    "mariage_yes": "Coming",
-    "mariage_no": "Not coming",
-    "mariage_wait": "Waiting",
+    "mariage_yes": "Confirmed",
+    "mariage_no": "Declined",
+    "mariage_wait": "Pending",
     "mariage_drinks": "Drinks",
     "mariage_tables": "Tables and linen",
-    "mariage_todo": "To do",
-    "mariage_todo_1": "Book the venue",
-    "mariage_todo_2": "Choose the caterer",
-    "mariage_todo_3": "Book the photographer"
+    "mariage_synced": "Up to date",
+    "mariage_invited": "Guests",
+    "mariage_split": "{yes} confirmed · {wait} pending",
+    "mariage_h1": "The Durands",
+    "mariage_h2": "School friends",
+    "mariage_h3": "The Leroys",
+    "mariage_h4": "Colleagues",
+    "mariage_toast": "School friends replied",
+    "mariage_toast_sub": "3 coming · just now"
   },
   "work": {
     "kicker": "At work",
